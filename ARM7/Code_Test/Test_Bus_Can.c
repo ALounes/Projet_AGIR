@@ -11,7 +11,11 @@
 #include <stdio.h> 
 #include "lcd.h"
 
-#define SIZE_MSG 10
+#define SIZE_MSG 1
+#define ID_TEST_01 11
+#define ID_TEST_02 22
+
+char ETAT = 0;
 unsigned long RECEPTION	;
 
 /******************************************/
@@ -53,20 +57,42 @@ void init_lcd (void)
 /***** Fonctions d'envoie de donnees ******/
 /******************************************/
 
-void envoie_donnees(unsigned long valeur[])
+void envoie_donnees(unsigned long valeur ,unsigned char id_message)
 {
-	int i;
-	
 	if(CAN1SR & 0x400)
 	{
-		CAN1TFI2 = 0x10000	; // Taille data 1 octet
-		CAN1TID2 = 40 		; // id message = 40 
-		
-		for(i = 0 ; i < SIZE_MSG ; i++){
-			CAN1TDA2 = valeur[i]; // Ecriture data dans buffer TX2
-			CAN1CMR  = 0x41;      // Envoie du message 	
-		}
+		CAN1TFI2 = 0x10000	;  // Taille data 1 octet
+		CAN1TID2 = id_message; // id message = 40 
+		CAN1TDA2 = valeur;     // Ecriture data dans buffer TX2
+		CAN1CMR  = 0x41;       // Envoie du message 	
 	}
+}
+
+/******************************************/
+/***** Fonctions Reception de donnees *****/
+/******************************************/
+
+void can_reception(void)__irq
+{
+	unsigned long id_message = (CAN1RID & 0x3FF);
+
+	switch(id_message)
+	{
+		case ID_TEST_01	:
+			RECEPTION = CAN1RDA;
+		 	break;
+
+		case ID_TEST_02	:
+			RECEPTION = CAN1RDA;
+			break;
+
+		default:
+			RECEPTION = 0;
+			break;
+	}
+		
+	CAN1CMR 	= 0x4; // vide buffer RX
+	VICVectAddr = 0x0;
 }
 
 /******************************************/
@@ -75,8 +101,17 @@ void envoie_donnees(unsigned long valeur[])
 
 void isr_bouton(void)__irq
 {
-	// A FAIRE 
-	
+	if (ETAT == 0)
+	{
+		ETAT = 1;
+		envoie_donnees(111, 11);
+	}
+	else 
+	{
+		ETAT = 0;
+		envoie_donnees(222,22);
+	}
+
 	EXTINT = 1;
 	VICVectAddr = 0;
 }
@@ -94,18 +129,6 @@ void isr_timer0(void)__irq
 	
 	T0IR = 1 ;
 	VICVectAddr = 0;
-}
-
-/******************************************/
-/***** Fonctions Reception de donnees *****/
-/******************************************/
-
-void can_reception(void)__irq
-{
-	// A FAIRE
-		
-	CAN1CMR 	= 0x4; // vide buffer RX
-	VICVectAddr = 0x0;
 }
 
 /******************************************/
