@@ -1,0 +1,50 @@
+Description technique :
+A) Macro-Design
+
+1. Vue global du système
+
+2. Vue Segmenté du système 
+1. Module Principale 
+2. Module Secondaire
+3. IHM
+4. Connectique 
+
+3. Contraintes
+	
+B) Micro-Design
+1. Vue globale micro-design
+2. Vue Segmentée micro-design
+1. Module Principale
+1. Hardware
+1. Vue structurelle du module Principale 
+2. Contrôleur Module
+3. module Bluetooth
+4. communication interne
+5. communication externe
+2. Software
+1. Protocole
+2. Diagramme fonctionnel (algorithmique)
+2. Module Secondaire
+1. Hardware
+1. Vue structurelle du module secondaire
+2. Circuit Margeur ( M )
+3. Circuit Pompe  ( V )
+4. Description Séquentiel
+1. Pilotage de Led
+2. Pilotage de contacteur
+3. Acquisition de données Capteur
+4. Acquisition de données bouton poussoir
+5. Circuit combinatoire
+6. Contrôleur module
+7. Communication interne
+8. Communication externe
+2. Software
+1. Protocole
+2. Diagramme fonctionnel (algorithmique)
+3. IHM
+1. Interface
+2. Protocole
+3. Diagramme fonctionnel (algorithmique)
+4. Connectique
+1. Communication filaire
+2. Communication sans file 
