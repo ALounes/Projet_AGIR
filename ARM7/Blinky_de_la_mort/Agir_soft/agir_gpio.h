@@ -22,10 +22,12 @@
 	#define P3 3
 	#define P4 4
 
+	#define TAILLE_ECRAN 17
 
 // DECLARATION DES PRO
 
 	void gpio_initialisation(void);
 	void gpio_out_on  (unsigned int numero_port, unsigned int decalage); 
 	void gpio_out_off (unsigned int numero_port, unsigned int decalage); 
-	void aff_start(void); 
+	char gpio_get_value(unsigned int numero_port, unsigned int numero_pin)
+	void gpio_affichage(unsigned int numero_port, unsigned int numero_pin)

@@ -108,9 +108,9 @@ void gpio_out_off (unsigned int numero_port, unsigned int decalage)
 	}
 }
 
-/******** Fonction de Mise en veille ********/
-// numero_pin : choix du numero de port a manipuler
-// decalage   : choix de la broche dans le port choisie
+/******** Fonction de lecture de valeur ********/
+// numero_port  : choix du numero de port a manipuler
+// numero_pin   : choix de la broche dans le port choisie
 char gpio_get_value(unsigned int numero_port, unsigned int numero_pin) 
 {
 	char pin_value;
@@ -148,12 +148,38 @@ char gpio_get_value(unsigned int numero_port, unsigned int numero_pin)
 
 void gpio_affichage(unsigned int numero_port, unsigned int numero_pin) 
 {
-	static char str[20] ;
+	static char str_01[TAILLE_ECRAN];
+	static char str_02[TAILLE_ECRAN];
+	char pin_value;
 
+	// Recuperation de la veleur du pin
+	pin_value = gpio_get_value(numero_port, numero_pin);
 	
-	sprintf(str,"Ca marche");
+
+	// 1ere ligne de l'afficheur 
+
 	set_cursor (1, 0);
+
+	sprintf(str_02,"GPIO : P%d.%d",numero_port,numero_pin);
+
 	lcd_print (str);
-	//set_cursor (0, 1);
-	//lcd_print (str);
+
+
+	// 2 eme ligne de l'afficheur 
+	set_cursor (0, 1);
+
+	if (pin_value == -1)
+	{
+		sprintf(str_02,"Erreur Lecture");
+	}
+	else
+	{
+		if (pin_value == LEVEL_LOW)
+			sprintf(str_02,"Value : Low");
+		else
+			sprintf(str_02,"Value : Hight");
+	}		
+
+	lcd_print (str);}
 }
+
