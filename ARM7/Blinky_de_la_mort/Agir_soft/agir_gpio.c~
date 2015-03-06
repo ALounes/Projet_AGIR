@@ -111,30 +111,30 @@ void gpio_out_off (unsigned int numero_port, unsigned int decalage)
 /******** Fonction de Mise en veille ********/
 // numero_pin : choix du numero de port a manipuler
 // decalage   : choix de la broche dans le port choisie
-char gpio_get_value (unsigned int numero_port, unsigned int numero_pin) 
+char gpio_get_value(unsigned int numero_port, unsigned int numero_pin) 
 {
 	char pin_value;
 
 	switch(numero_port)
 	{
 		case P0:
-			pin_value = FIO0PIN << numero_pin;
+			pin_value = (FIO0PIN << numero_pin) & 1;
 			break;
 		
 		case P1:
-			FIO1PIN |= (1<<decalage) ;
+			pin_value = (FIO1PIN << numero_pin) & 1;
 			break;
 				
 		case P2:
-			FIO2PIN |= (1<<decalage) ;
+			pin_value = (FIO2PIN << numero_pin) & 1;
 			break;
 		
 		case P3:
-			FIO3PIN |= (1<<decalage) ;
+			pin_value = (FIO3PIN << numero_pin) & 1;
 			break;
 				
 		case P4:
-			FIO4PIN |= (1<<decalage) ;
+			pin_value = (FIO4PIN << numero_pin) & 1;
 			break;
 		
 		default :
