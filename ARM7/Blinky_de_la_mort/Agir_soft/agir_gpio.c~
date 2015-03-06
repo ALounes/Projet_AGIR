@@ -44,29 +44,29 @@ void gpio_initialisation(void)
 
 /********* Fonction de Mise en route ********/
 // numero_pin : choix du numero de port a manipuler
-// decalage   : choix de la broche dans le port choisie
-void gpio_out_on (unsigned int numero_port, unsigned int decalage) 
+// numero_pin   : choix de la broche dans le port choisie
+void gpio_out_on (unsigned int numero_port, unsigned int numero_pin) 
 {
 	switch(numero_port)
 	{
 		case P0:
-			FIO0SET |= (1<<decalage) ;
+			FIO0SET |= (1<<numero_pin) ;
 			break;
 		
 		case P1:
-			FIO1SET |= (1<<decalage) ;
+			FIO1SET |= (1<<numero_pin) ;
 			break;
 				
 		case P2:
-			FIO2SET |= (1<<decalage) ;
+			FIO2SET |= (1<<numero_pin) ;
 			break;
 		
 		case P3:
-			FIO3SET |= (1<<decalage) ;
+			FIO3SET |= (1<<numero_pin) ;
 			break;
 				
 		case P4:
-			FIO4SET |= (1<<decalage) ;
+			FIO4SET |= (1<<numero_pin) ;
 			break;
 		
 		default :
@@ -76,30 +76,30 @@ void gpio_out_on (unsigned int numero_port, unsigned int decalage)
 }
 
 /******** Fonction de Mise en veille ********/
-// numero_pin : choix du numero de port a manipuler
-// decalage   : choix de la broche dans le port choisie
-void gpio_out_off (unsigned int numero_port, unsigned int decalage) 
+// numero_port : choix du numero de port a manipuler
+// numero_pin   : choix de la broche dans le port choisie
+void gpio_out_off (unsigned int numero_port, unsigned int numero_pin) 
 {
 	switch(numero_port)
 	{
 		case P0:
-			FIO0CLR |= (1<<decalage) ;
+			FIO0CLR |= (1<<numero_pin) ;
 			break;
 		
 		case P1:
-			FIO1CLR |= (1<<decalage) ;
+			FIO1CLR |= (1<<numero_pin) ;
 			break;
 				
 		case P2:
-			FIO2CLR |= (1<<decalage) ;
+			FIO2CLR |= (1<<numero_pin) ;
 			break;
 		
 		case P3:
-			FIO3CLR |= (1<<decalage) ;
+			FIO3CLR |= (1<<numero_pin) ;
 			break;
 				
 		case P4:
-			FIO4CLR |= (1<<decalage) ;
+			FIO4CLR |= (1<<numero_pin) ;
 			break;
 		
 		default :
@@ -181,3 +181,5 @@ void gpio_affichage(unsigned int numero_port, unsigned int numero_pin)
 	}		
 
 	lcd_print (str);}
+}
+
