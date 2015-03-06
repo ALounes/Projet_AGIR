@@ -118,23 +118,23 @@ char gpio_get_value (unsigned int numero_port, unsigned int numero_pin)
 	switch(numero_port)
 	{
 		case P0:
-			pin_value = (FIO0PIN << numero_pin) & 1;
+			pin_value = FIO0PIN << numero_pin;
 			break;
 		
 		case P1:
-			pin_value = (FIO1PIN << numero_pin) & 1;
+			FIO1PIN |= (1<<decalage) ;
 			break;
 				
 		case P2:
-			pin_value = (FIO2PIN << numero_pin) & 1;
+			FIO2PIN |= (1<<decalage) ;
 			break;
 		
 		case P3:
-			pin_value = (FIO3PIN << numero_pin) & 1;
+			FIO3PIN |= (1<<decalage) ;
 			break;
 				
 		case P4:
-			pin_value = (FIO4PIN << numero_pin) & 1;
+			FIO4PIN |= (1<<decalage) ;
 			break;
 		
 		default :

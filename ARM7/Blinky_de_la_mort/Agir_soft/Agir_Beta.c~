@@ -23,7 +23,7 @@
 
 int main (void) 
 {
-	gpio_initialisation();
+	initialisation();
 	lcd_init();
 	lcd_clear();
 	aff_start();

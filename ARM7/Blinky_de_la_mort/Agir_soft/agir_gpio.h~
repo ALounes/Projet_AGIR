@@ -26,6 +26,6 @@
 // DECLARATION DES PRO
 
 	void gpio_initialisation(void);
-	void gpio_out_on  (unsigned int numero_port, unsigned int decalage); 
-	void gpio_out_off (unsigned int numero_port, unsigned int decalage); 
+	void gpio_out_on  (unsigned int numero_pin, unsigned int decalage); 
+	void gpio_out_off (unsigned int numero_pin, unsigned int decalage); 
 	void aff_start(void); 
