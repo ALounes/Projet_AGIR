@@ -58,11 +58,19 @@ void isr_can_reception(void)__irq
 
 	switch(id_message)
 	{
-		case ID_TEST_01	:
+		case ID_TEST_01:
 			CAN_RECEPTION = CAN1RDA;
 		 	break;
 
-		case ID_TEST_02	:
+		case ID_TEST_02:
+			CAN_RECEPTION = CAN1RDA;
+			break;
+
+		case ID_TEST_03:
+			CAN_RECEPTION = CAN1RDA;
+		 	break;
+
+		case ID_TEST_04:
 			CAN_RECEPTION = CAN1RDA;
 			break;
 
@@ -74,3 +82,8 @@ void isr_can_reception(void)__irq
 	CAN1CMR 	= 0x4; // vide buffer RX
 	VICVectAddr = 0x0;
 }
+
+
+/**********************************************************/
+/********************* FIN FICHIER ************************/
+/**********************************************************/

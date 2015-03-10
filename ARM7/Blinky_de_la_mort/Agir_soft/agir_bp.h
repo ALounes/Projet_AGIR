@@ -14,10 +14,6 @@
 /*========================================================*/
 /**********************************************************/
 
-	#include "agir_bus_can.h"
-	#include "agir_gpio.h" 
-
 	// DECLARATION DES PRO
 
-	void init_vic(void);
-	void isr_timer0(void)__irq;
+	void isr_bouton(void)__irq;

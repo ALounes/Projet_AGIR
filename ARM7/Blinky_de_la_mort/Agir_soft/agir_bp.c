@@ -14,10 +14,22 @@
 /*========================================================*/
 /**********************************************************/
 
-	#include "agir_bus_can.h"
-	#include "agir_gpio.h" 
+#include "agir_bp.h"
 
-	// DECLARATION DES PRO
 
-	void init_vic(void);
-	void isr_timer0(void)__irq;
+void isr_bouton(void)__irq
+{
+	if (ETAT == 0)
+	{
+		ETAT = 1;
+		can_emission(111, 11);
+	}
+	else 
+	{
+		ETAT = 0;
+		can_emission(222,22);
+	}
+
+	EXTINT = 1;
+	VICVectAddr = 0;
+}
