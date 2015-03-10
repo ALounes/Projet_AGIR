@@ -22,7 +22,7 @@
 /********************* Initialisation *********************/
 /**********************************************************/
 
-void init_CAN(void)
+void can_initialisation(void)
 {
 	PCONP		|= 1<<13; 	 // allumage CAN
 	PINSEL0	|= 0x05; 	 // configuration broche
@@ -33,8 +33,6 @@ void init_CAN(void)
 	CAN1MOD	 =	0x00;  	 // mode 0 can 
 }
 
-
-
 /**********************************************************/
 /************** Fonctions d'envoie de donnees *************/
 /**********************************************************/
@@ -43,7 +41,7 @@ void can_emission(unsigned long valeur ,unsigned char id_message)
 {
 	if(CAN1SR & 0x400)
 	{
-		CAN1TFI2 = 0x10000	;  // Taille data 1 octet
+		CAN1TFI2 = 0x10000	; // Taille data 1 octet
 		CAN1TID2 = id_message; // id message = 40 
 		CAN1TDA2 = valeur;     // Ecriture data dans buffer TX2
 		CAN1CMR  = 0x41;       // Envoie du message 	
@@ -61,15 +59,15 @@ void isr_can_reception(void)__irq
 	switch(id_message)
 	{
 		case ID_TEST_01	:
-			RECEPTION = CAN1RDA;
+			CAN_RECEPTION = CAN1RDA;
 		 	break;
 
 		case ID_TEST_02	:
-			RECEPTION = CAN1RDA;
+			CAN_RECEPTION = CAN1RDA;
 			break;
 
 		default:
-			RECEPTION = 0;
+			CAN_RECEPTION = -1;
 			break;
 	}
 		

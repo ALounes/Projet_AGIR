@@ -14,16 +14,11 @@
 /*========================================================*/
 /**********************************************************/
 
-	#define SIZE_MSG 1
-	#define ID_MODULE_01 01
-	#define ID_MODULE_02 02
-	#define ID_MODULE_03 03
-	#define ID_MODULE_04 04
-
-	unsigned long CAN_RECEPTION;
+	#include "agir_bus_can.h"
+	#include "agir_gpio.h" 
 
 	// DECLARATION DES PRO
 
-	void can_initialisation(void);
-	void isr_can_reception(void)__irq;
-	void can_emission(unsigned long valeur ,unsigned char id_message);
+	void init_vic(void);
+	void isr_timer0(void)__irq;
+	void isr_bouton(void)__irq;

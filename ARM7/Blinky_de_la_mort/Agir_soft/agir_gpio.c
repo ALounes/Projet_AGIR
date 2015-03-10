@@ -27,7 +27,7 @@ void gpio_initialisation(void)
 	
 	PINSEL4 = 0X00000000; 					// tous les pinsel sont reglé en mode GPIO
 	FIO2DIR |= 0XFFFF3FFF;					/* Les pins 0 à 13 sont réglés en sortie 
-																		 correspondant aux LEDs  de 1 à 14 */
+														correspondant aux LEDs  de 1 à 14 */
 	
 	/* Les PIN (3.X) seront coonectés aux 5 boutons   
 	poussoires et aux 5 contacteurs  									*/
