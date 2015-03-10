@@ -28,6 +28,16 @@
 
 	#define TAILLE_ECRAN 17
 
+	#define LED_GREEN   1
+	#define LED_RED     0
+	#define LED_ORANGE -1
+
+	#define MARGEUR_00  0
+	#define MARGEUR_01  1 
+	#define MARGEUR_02  2
+	#define MARGEUR_03  3
+	#define MARGEUR_04  4
+
 // DECLARATION DES PRO
 
 	void gpio_initialisation(void);
