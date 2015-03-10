@@ -14,8 +14,8 @@
 /*========================================================*/
 /**********************************************************/
 
-#ifndef AGIR_BUS_CAN_H
-#define AGIR_BUS_CAN_H
+#ifndef AGIR_BP_H
+#define AGIR_BP_H
 
 
 	#include <LPC23xx.H>
@@ -24,6 +24,7 @@
 
 	// DECLARATION DES PRO
 
+	void bouton_initialisation(void);
 	void isr_bouton(void)__irq;
 
 #endif 

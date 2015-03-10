@@ -15,7 +15,6 @@
 /**********************************************************/
 
 #include <stdio.h>
-#include <LPC23xx.H>  
 #include "agir_gpio.h"
 
 
@@ -25,19 +24,19 @@ void gpio_initialisation(void)
 	/*  Les PIN (2.X) seront tous connectés aux 15 LEDs ,
 	Ces LED sont également dirigés en sortie           */
 	
-	PINSEL4 = 0X00000000; 					// tous les pinsel sont reglé en mode GPIO
+	PINSEL4  = 0X00000000; 					// tous les pinsel sont reglé en mode GPIO
 	FIO2DIR |= 0XFFFF3FFF;					/* Les pins 0 à 13 sont réglés en sortie 
 														correspondant aux LEDs  de 1 à 14 */
 	
 	/* Les PIN (3.X) seront coonectés aux 5 boutons   
 	poussoires et aux 5 contacteurs  									*/
 	
-	PINSEL6 = 0X00000000;
-	PINSEL7 = 0X00000000;
+	PINSEL6  = 0X00000000;
+	PINSEL7  = 0X00000000;
 	FIO3DIR |= 0XF60000FF;
 	
 	/* Les PIN (4.x) seront connectés aux capteurs */
-	PINSEL8 = 0X00000000;
+	PINSEL8  = 0X00000000;
 }
 
 

@@ -18,6 +18,11 @@
 #define AGIR_MAIN_H
 
 	#include <LPC23xx.H>
+	#include "agir_bus_can.h"
+	#include "agir_timer.h"
+	#include "agir_gpio.h"
+	#include "agir_uart.h"
+	#include "agir_bp.h"
 
 	// DECLARATION DES PRO
 

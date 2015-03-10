@@ -22,18 +22,17 @@
 /************ Fonctions gestion d'interuptions ************/
 /**********************************************************/
 
+void bouton_initialisation(void)
+{
+	PINSEL  |= (1<<20);
+	EXTMODE  = 1;
+	EXTPOLAR = 0;
+}
+
 void isr_bouton(void)__irq
 {
-	if (ETAT == 0)
-	{
-		ETAT = 1;
-		can_emission(111, 11);
-	}
-	else 
-	{
-		ETAT = 0;
-		can_emission(222,22);
-	}
+
+	// A FAIRE
 
 	EXTINT = 1;
 	VICVectAddr = 0;

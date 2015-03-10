@@ -78,7 +78,7 @@ void isr_can_reception(void)__irq
 			break;
 	}
 		
-	CAN1CMR 	= 0x4; // vide buffer RX
+	CAN1CMR 	   = 0x4; // vide buffer RX
 	VICVectAddr = 0x0;
 }
 

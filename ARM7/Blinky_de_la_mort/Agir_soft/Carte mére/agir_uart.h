@@ -44,8 +44,8 @@
 
 	// Declaration des protos
 
-	int getkey (void); 
-	int sendchar (int ch);
+	int  getkey (void); 
+	int  sendchar (int ch);
 	void init_serial (void);
 
 #endif 

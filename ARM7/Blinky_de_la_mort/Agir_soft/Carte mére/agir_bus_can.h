@@ -14,15 +14,23 @@
 /*========================================================*/
 /**********************************************************/
 
+#ifndef AGIR_BUS_CAN_H
+#define AGIR_BUS_CAN_H
+
 	#include <LPC23xx.H>
 
-	#define SIZE_MSG 1
-	#define ID_MODULE_01 01
-	#define ID_MODULE_02 02
-	#define ID_MODULE_03 03
-	#define ID_MODULE_04 04
+	#define SIZE_MSG 	    1
+
+	#define ID_MODULE_01  1
+	#define ID_MODULE_02  2
+	#define ID_MODULE_03  3
+	#define ID_MODULE_04  4
+
+	#define NBR_MODULE    4
+	#define TAILLE_MODULE 4
 
 	unsigned long CAN_RECEPTION;
+	char ETAT[NBR_MODULE][TAILLE_MODULE];
 
 	// DECLARATION DES PRO
 
