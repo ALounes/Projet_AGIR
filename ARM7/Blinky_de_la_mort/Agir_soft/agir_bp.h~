@@ -13,31 +13,20 @@
 /*-- {Younsi Thin-hinane}: thin-hinane@hotmail.fr       --*/
 /*========================================================*/
 /**********************************************************/
-#ifndef AGIR_GPIO_H
-#define AGIR_GPIO_H
+
+#ifndef AGIR_BUS_CAN_H
+#define AGIR_BUS_CAN_H
+
 
 	#include <LPC23xx.H>
-
-// DEFINITION DES NUMEROS DE PORTS
-
-	#define P0 0
-	#define P1 1
-	#define P2 2
-	#define P3 3
-	#define P4 4
-
-	#define TAILLE_ECRAN 17
-
-// DECLARATION DES PRO
-
-	void gpio_initialisation(void);
-	void gpio_out_on   (unsigned int numero_port, unsigned int numero_pin); 
-	void gpio_out_off  (unsigned int numero_port, unsigned int numero_pin); 
-	char gpio_get_value(unsigned int numero_port, unsigned int numero_pin);
-	void gpio_affichage(unsigned int numero_port, unsigned int numero_pin);
+	#include "agir_bus_can.h"
 
 
-#endif
+	// DECLARATION DES PRO
+
+	void isr_bouton(void)__irq;
+
+
 
 /**********************************************************/
 /********************* FIN FICHIER ************************/
