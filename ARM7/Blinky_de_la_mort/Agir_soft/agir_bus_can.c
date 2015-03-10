@@ -14,20 +14,29 @@
 /*========================================================*/
 /**********************************************************/
 
-// DEFINITION DES NUMEROS DE PORTS
+#include "lpc23xx.h"
+#include <stdio.h> 
 
-	#define P0 0
-	#define P1 1
-	#define P2 2
-	#define P3 3
-	#define P4 4
 
-	#define TAILLE_ECRAN 17
+#define SIZE_MSG 1
+#define ID_TEST_01 11
+#define ID_TEST_02 22
 
-// DECLARATION DES PRO
+char ETAT = 0;
+unsigned long RECEPTION	;
 
-	void gpio_initialisation(void);
-	void gpio_out_on  (unsigned int numero_port, unsigned int numero_pin); 
-	void gpio_out_off (unsigned int numero_port, unsigned int numero_pin); 
-	char gpio_get_value(unsigned int numero_port, unsigned int numero_pin)
-	void gpio_affichage(unsigned int numero_port, unsigned int numero_pin)
+
+/**********************************************************/
+/********************* Initialisation *********************/
+/**********************************************************/
+
+void init_CAN(void)
+{
+	PCONP		|= 1<<13; 	 // allumage CAN
+	PINSEL0	|= 0x05; 	 // configuration broche
+	CAN1MOD 	 = 0x01;		 // mode 1 can 
+	CAN1BTR	 = 0x450000; // debit de 1MHZ
+	CAN1IER	 = 0x01; 	 // autorise les interuptions RX
+	CAN_AFMR  =	0x02; 	 // desactive le filtre CAN1
+	CAN1MOD	 =	0x00;  	 // mode 0 can 
+}
