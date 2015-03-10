@@ -17,6 +17,18 @@
 #include <stdio.h> 
 #include "agir_timer.h"
 
+void timer_0_initialisation(void)
+{
+	T0MR0  = TIMER_0_FREQ;
+	T0MCR |= TIMER_10_CONTROL;
+}
+
+void timer_1_initialisation(void)
+{
+	T1MR0  = TIMER_1_FREQ;
+	T1MCR |= TIMER_1_CONTROL;
+}
+
 
 /**********************************************************/
 /************ Fonctions gestion d'interuptions ************/
@@ -24,14 +36,22 @@
 
 void isr_timer0(void)__irq
 {
-	char buffer[17];
+	char buffer[TAILLE_LIGNE_LCD];
 	
-	/* Affichage reception */
-	sprintf(buffer,"MSG: %d",RECEPTION);
-	lcd_clear();
-	lcd_print(buffer);
+	// A FAIRE !!
 	
 	T0IR = 1 ;
+	VICVectAddr = 0;
+}
+
+
+void isr_timer1(void)__irq
+{
+	char buffer[TAILLE_LIGNE_LCD];
+	
+	// A FAIRE !!
+	
+	T1IR = 1 ;
 	VICVectAddr = 0;
 }
 

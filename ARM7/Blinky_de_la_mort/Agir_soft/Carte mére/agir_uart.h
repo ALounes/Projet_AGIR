@@ -14,28 +14,42 @@
 /*========================================================*/
 /**********************************************************/
 
-#ifndef AGIR_TIMER_H
-#define AGIR_TIMER_H
+#ifndef AGIR_UART_H
+#define AGIR_UART_H
 
-	#include <LPC23xx.H>
+	#include <LPC23xx.H> 
 
-	#define TAILLE_LIGNE_LCD 17
+	/* Use UART 0 for printf             */
+	#define UART1                            
 
-	#define TIMER_0_FREQ    120000000/1000
-	#define TIMER_0_CONTROL 3
+	/* If UART 0 is used for printf */
+	#ifdef UART0
+	  #define UxFDR  U0FDR
+	  #define UxLCR  U0LCR
+	  #define UxDLL  U0DLL
+	  #define UxDLM  U0DLM
+	  #define UxLSR  U0LSR
+	  #define UxTHR  U0THR
+	  #define UxRBR  U0RBR
+	/* If UART 1 is used for printf */
+	#elif defined(UART1)
+	  #define UxFDR  U1FDR
+	  #define UxLCR  U1LCR
+	  #define UxDLL  U1DLL
+	  #define UxDLM  U1DLM
+	  #define UxLSR  U1LSR
+	  #define UxTHR  U1THR
+	  #define UxRBR  U1RBR
+	#endif
 
-	#define TIMER_1_FREQ    120000000/1000000
-	#define TIMER_1_CONTROL 3
+	// Declaration des protos
 
-	// DECLARATION DES PRO
+	int getkey (void); 
+	int sendchar (int ch);
+	void init_serial (void);
 
-	void timer_0_initialisation(void);
-	void timer_1_initialisation(void);
+#endif 
 
-	void isr_timer0(void)__irq;
-	void isr_timer1(void)__irq;
-
-#endif
 
 /**********************************************************/
 /********************* FIN FICHIER ************************/
