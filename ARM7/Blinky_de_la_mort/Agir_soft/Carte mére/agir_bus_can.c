@@ -57,24 +57,76 @@ void isr_can_reception(void)__irq
 
 	switch(id_message)
 	{
-		case ID_TEST_01:
-			CAN_RECEPTION = CAN1RDA;
+		/* MODULE 00 */
+		case ID_MODULE_0_SECTION_0:
+			ETAT_SYSTEME[0][0] = CAN1RDA;
 		 	break;
 
-		case ID_TEST_02:
-			CAN_RECEPTION = CAN1RDA;
-			break;
-
-		case ID_TEST_03:
-			CAN_RECEPTION = CAN1RDA;
+		case ID_MODULE_0_SECTION_1:
+			ETAT_SYSTEME[0][1] = CAN1RDA;
 		 	break;
 
-		case ID_TEST_04:
-			CAN_RECEPTION = CAN1RDA;
-			break;
+		case ID_MODULE_0_SECTION_2:
+			ETAT_SYSTEME[0][2] = CAN1RDA;
+		 	break;
 
+		case ID_MODULE_0_SECTION_3:
+			ETAT_SYSTEME[0][3] = CAN1RDA;
+		 	break;
+
+		/* MODULE 01 */
+		case ID_MODULE_1_SECTION_0:
+			ETAT_SYSTEME[1][0] = CAN1RDA;
+		 	break;
+
+		case ID_MODULE_1_SECTION_1:
+			ETAT_SYSTEME[1][1] = CAN1RDA;
+		 	break;
+
+		case ID_MODULE_1_SECTION_2:
+			ETAT_SYSTEME[1][2] = CAN1RDA;
+		 	break;
+
+		case ID_MODULE_1_SECTION_3:
+			ETAT_SYSTEME[1][3] = CAN1RDA;
+		 	break;
+
+		/* MODULE 02 */
+		case ID_MODULE_2_SECTION_0:
+			ETAT_SYSTEME[2][0] = CAN1RDA;
+		 	break;
+
+		case ID_MODULE_2_SECTION_1:
+			ETAT_SYSTEME[2][1] = CAN1RDA;
+		 	break;
+
+		case ID_MODULE_2_SECTION_2:
+			ETAT_SYSTEME[2][2] = CAN1RDA;
+		 	break;
+
+		case ID_MODULE_2_SECTION_3:
+			ETAT_SYSTEME[2][3] = CAN1RDA;
+		 	break;
+
+		/* MODULE 03 */
+		case ID_MODULE_3_SECTION_0:
+			ETAT_SYSTEME[3][0] = CAN1RDA;
+		 	break;
+
+		case ID_MODULE_3_SECTION_1:
+			ETAT_SYSTEME[3][1] = CAN1RDA;
+		 	break;
+
+		case ID_MODULE_3_SECTION_2:
+			ETAT_SYSTEME[3][2] = CAN1RDA;
+		 	break;
+
+		case ID_MODULE_3_SECTION_3:
+			ETAT_SYSTEME[3][3] = CAN1RDA;
+		 	break;
+
+		/* ERREUR */
 		default:
-			CAN_RECEPTION = -1;
 			break;
 	}
 		

@@ -21,16 +21,36 @@
 
 	#define SIZE_MSG 	    1
 
-	#define ID_MODULE_01  1
-	#define ID_MODULE_02  2
-	#define ID_MODULE_03  3
-	#define ID_MODULE_04  4
-
 	#define NBR_MODULE    4
 	#define TAILLE_MODULE 4
 
-	unsigned long CAN_RECEPTION;
-	char ETAT[NBR_MODULE][TAILLE_MODULE];
+	/* Idetificateur pour le module 00 */
+	#define ID_MODULE_0_SECTION_0  00
+	#define ID_MODULE_0_SECTION_1  01
+	#define ID_MODULE_0_SECTION_2  02
+	#define ID_MODULE_0_SECTION_3  03
+
+	/* Idetificateur pour le module 01 */
+	#define ID_MODULE_1_SECTION_0  10
+	#define ID_MODULE_1_SECTION_1  11
+	#define ID_MODULE_1_SECTION_2  12
+	#define ID_MODULE_1_SECTION_3  13
+
+	/* Idetificateur pour le module 02 */
+	#define ID_MODULE_2_SECTION_0  10
+	#define ID_MODULE_2_SECTION_1  11
+	#define ID_MODULE_2_SECTION_2  12
+	#define ID_MODULE_2_SECTION_3  13
+
+	/* Idetificateur pour le module 03 */
+	#define ID_MODULE_3_SECTION_0  10
+	#define ID_MODULE_3_SECTION_1  11
+	#define ID_MODULE_3_SECTION_2  12
+	#define ID_MODULE_3_SECTION_3  13
+
+	// Variables Globales
+
+	char ETAT_SYSTEME[NBR_MODULE][TAILLE_MODULE];
 
 	// DECLARATION DES PRO
 
@@ -38,6 +58,7 @@
 	void isr_can_reception(void)__irq;
 	void can_emission(unsigned long valeur ,unsigned char id_message);
 
+#endif
 
 /**********************************************************/
 /********************* FIN FICHIER ************************/

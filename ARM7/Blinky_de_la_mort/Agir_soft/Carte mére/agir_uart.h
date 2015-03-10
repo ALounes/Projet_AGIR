@@ -44,9 +44,9 @@
 
 	// Declaration des protos
 
-	int  getkey (void); 
-	int  sendchar (int ch);
-	void init_serial (void);
+	int  uart_reception (void); 
+	int  uart_emission (int data);
+	void uart_initialisation (void);
 
 #endif 
 

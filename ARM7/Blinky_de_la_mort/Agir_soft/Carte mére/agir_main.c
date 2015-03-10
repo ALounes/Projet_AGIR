@@ -39,8 +39,13 @@ void init_vic(void)
 
 int main(void)
 {
+	timer_0_initialisation();
+	bouton_initialisation();
+	gpio_initialisation();
+	uart_initialisation();
+	can_initialisation();
 
-	init_vic();
+	vic_initialisation();
 	
 	T0TCR = 1;
 
