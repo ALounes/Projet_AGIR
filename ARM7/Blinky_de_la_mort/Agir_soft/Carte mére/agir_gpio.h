@@ -91,7 +91,7 @@
 	#define PIN_LED_MAGEUR_04_RED			
 
 
-// DECLARATION DES PRO
+// DECLARATION DES PROTO
 
 	void gpio_initialisation(void);
 	void gpio_out_on   (unsigned int numero_port, unsigned int numero_pin); 

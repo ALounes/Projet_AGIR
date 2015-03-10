@@ -149,44 +149,82 @@ char gpio_get_value(unsigned int numero_port, unsigned int numero_pin)
 void gpio_all_out_off(void)
 {
 	// Contacteur OFF 
-	gpio_out_off(,);
-	gpio_out_off(,); 
-	gpio_out_off(,);
-	gpio_out_off(,); 
-	gpio_out_off(,);
+	contacteur_all_red();
 
 	// Led Turned on a RED value
 	led_all_off();
 }
 
-void led_all_off(void)
+void relais_all_on(void)
 {
-	led_margeur_set(MARGEUR_00, LED_RED);
-	led_margeur_set(MARGEUR_01, LED_RED);
-	led_margeur_set(MARGEUR_02, LED_RED);
-	led_margeur_set(MARGEUR_03, LED_RED);
-	led_margeur_set(MARGEUR_04, LED_RED);
+	set_relais_margeur(RELAIS_00, RELAIS_ON);
+	set_relais_margeur(RELAIS_01, RELAIS_ON);
+	set_relais_margeur(RELAIS_02, RELAIS_ON);
+	set_relais_margeur(RELAIS_03, RELAIS_ON);
 }
 
-void led_all_on(void)
+void relais_all_off(void)
 {
-	led_margeur_set(MARGEUR_00, LED_GREEN);
-	led_margeur_set(MARGEUR_01, LED_GREEN);
-	led_margeur_set(MARGEUR_02, LED_GREEN);
-	led_margeur_set(MARGEUR_03, LED_GREEN);
-	led_margeur_set(MARGEUR_04, LED_GREEN);	
+	set_relais_margeur(RELAIS_00, RELAIS_OFF);
+	set_relais_margeur(RELAIS_01, RELAIS_OFF);
+	set_relais_margeur(RELAIS_02, RELAIS_OFF);
+	set_relais_margeur(RELAIS_03, RELAIS_OFF);	
 }
 
-void led_all_XX(void)
+void set_relais_margeur(int margeur, int etat_margeur)
 {
-	led_margeur_set(MARGEUR_00, LED_ORANGE);
-	led_margeur_set(MARGEUR_01, LED_ORANGE);
-	led_margeur_set(MARGEUR_02, LED_ORANGE);
-	led_margeur_set(MARGEUR_03, LED_ORANGE);
-	led_margeur_set(MARGEUR_04, LED_ORANGE);
+	switch(margeur)
+	{
+		case MARGEUR_00:
+			set_led_margeur_00(etat_margeur);
+			break;
+
+		case MARGEUR_01:
+			set_led_margeur_01(etat_margeur);
+			break;
+
+		case MARGEUR_02:
+			set_led_margeur_02(etat_margeur);
+			break;
+
+		case MARGEUR_03:
+			set_led_margeur_03(etat_margeur);
+			break;
+
+		default:
+			break;	
+	}
 }
 
-void led_margeur_set(int margeur, int etat_margeur)
+
+void led_all_red(void)
+{
+	set_led_margeur(MARGEUR_00, LED_RED);
+	set_led_margeur(MARGEUR_01, LED_RED);
+	set_led_margeur(MARGEUR_02, LED_RED);
+	set_led_margeur(MARGEUR_03, LED_RED);
+	set_led_margeur(MARGEUR_04, LED_RED);
+}
+
+void led_all_green(void)
+{
+	set_led_margeur(MARGEUR_00, LED_GREEN);
+	set_led_margeur(MARGEUR_01, LED_GREEN);
+	set_led_margeur(MARGEUR_02, LED_GREEN);
+	set_led_margeur(MARGEUR_03, LED_GREEN);
+	set_led_margeur(MARGEUR_04, LED_GREEN);	
+}
+
+void led_all_orange(void)
+{
+	set_led_margeur(MARGEUR_00, LED_ORANGE);
+	set_led_margeur(MARGEUR_01, LED_ORANGE);
+	set_led_margeur(MARGEUR_02, LED_ORANGE);
+	set_led_margeur(MARGEUR_03, LED_ORANGE);
+	set_led_margeur(MARGEUR_04, LED_ORANGE);
+}
+
+void set_led_margeur(int margeur, int etat_margeur)
 {
 	switch(margeur)
 	{
@@ -387,3 +425,8 @@ void gpio_affichage(unsigned int numero_port, unsigned int numero_pin)
 	lcd_print (str);}
 }
 
+
+
+/**********************************************************/
+/********************* FIN FICHIER ************************/
+/**********************************************************/
