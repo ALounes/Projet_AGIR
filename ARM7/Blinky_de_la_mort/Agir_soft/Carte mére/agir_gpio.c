@@ -220,12 +220,21 @@ void set_led_margeur_00(int etat_margeur)
 	switch(etat_margeur)
 	{
 		case LED_GREEN:
+			gpio_out_on (PORT_LED_MAGEUR_00_GREEN , PIN_LED_MAGEUR_00_GREEN );
+			gpio_out_off(PORT_LED_MAGEUR_00_RED   , PIN_LED_MAGEUR_00_RED   );
+			gpio_out_off(PORT_LED_MAGEUR_00_ORANGE, PIN_LED_MAGEUR_00_ORANGE);
 			break;
 	
 		case LED_RED:
+			gpio_out_off(PORT_LED_MAGEUR_00_GREEN , PIN_LED_MAGEUR_00_GREEN );
+			gpio_out_on (PORT_LED_MAGEUR_00_RED   , PIN_LED_MAGEUR_00_RED   );
+			gpio_out_off(PORT_LED_MAGEUR_00_ORANGE, PIN_LED_MAGEUR_00_ORANGE);
 			break;
 
 		case LED_ORANGE:
+			gpio_out_off(PORT_LED_MAGEUR_00_GREEN , PIN_LED_MAGEUR_00_GREEN );
+			gpio_out_off(PORT_LED_MAGEUR_00_RED   , PIN_LED_MAGEUR_00_RED   );
+			gpio_out_on (PORT_LED_MAGEUR_00_ORANGE, PIN_LED_MAGEUR_00_ORANGE);
 			break
 
 		default:
@@ -238,12 +247,21 @@ void set_led_margeur_01(int etat_margeur)
 	switch(etat_margeur)
 	{
 		case LED_GREEN:
+			gpio_out_on (PORT_LED_MAGEUR_01_GREEN , PIN_LED_MAGEUR_01_GREEN );
+			gpio_out_off(PORT_LED_MAGEUR_01_RED   , PIN_LED_MAGEUR_01_RED   );
+			gpio_out_off(PORT_LED_MAGEUR_01_ORANGE, PIN_LED_MAGEUR_01_ORANGE);
 			break;
 	
 		case LED_RED:
+			gpio_out_off(PORT_LED_MAGEUR_01_GREEN , PIN_LED_MAGEUR_01_GREEN );
+			gpio_out_on (PORT_LED_MAGEUR_01_RED   , PIN_LED_MAGEUR_01_RED   );
+			gpio_out_off(PORT_LED_MAGEUR_01_ORANGE, PIN_LED_MAGEUR_01_ORANGE);
 			break;
 
 		case LED_ORANGE:
+			gpio_out_off(PORT_LED_MAGEUR_01_GREEN , PIN_LED_MAGEUR_01_GREEN );
+			gpio_out_off(PORT_LED_MAGEUR_01_RED   , PIN_LED_MAGEUR_01_RED   );
+			gpio_out_on (PORT_LED_MAGEUR_01_ORANGE, PIN_LED_MAGEUR_01_ORANGE);
 			break
 
 		default:
@@ -256,12 +274,21 @@ void set_led_margeur_02(int etat_margeur)
 	switch(etat_margeur)
 	{
 		case LED_GREEN:
+			gpio_out_on (PORT_LED_MAGEUR_02_GREEN , PIN_LED_MAGEUR_02_GREEN );
+			gpio_out_off(PORT_LED_MAGEUR_02_RED   , PIN_LED_MAGEUR_02_RED   );
+			gpio_out_off(PORT_LED_MAGEUR_02_ORANGE, PIN_LED_MAGEUR_02_ORANGE);
 			break;
 	
 		case LED_RED:
+			gpio_out_off(PORT_LED_MAGEUR_02_GREEN , PIN_LED_MAGEUR_02_GREEN );
+			gpio_out_on (PORT_LED_MAGEUR_02_RED   , PIN_LED_MAGEUR_02_RED   );
+			gpio_out_off(PORT_LED_MAGEUR_02_ORANGE, PIN_LED_MAGEUR_02_ORANGE);
 			break;
 
 		case LED_ORANGE:
+			gpio_out_off(PORT_LED_MAGEUR_02_GREEN , PIN_LED_MAGEUR_02_GREEN );
+			gpio_out_off(PORT_LED_MAGEUR_02_RED   , PIN_LED_MAGEUR_02_RED   );
+			gpio_out_on (PORT_LED_MAGEUR_02_ORANGE, PIN_LED_MAGEUR_02_ORANGE);
 			break
 
 		default:
@@ -274,12 +301,21 @@ void set_led_margeur_03(int etat_margeur)
 	switch(etat_margeur)
 	{
 		case LED_GREEN:
+			gpio_out_on (PORT_LED_MAGEUR_03_GREEN , PIN_LED_MAGEUR_03_GREEN );
+			gpio_out_off(PORT_LED_MAGEUR_03_RED   , PIN_LED_MAGEUR_03_RED   );
+			gpio_out_off(PORT_LED_MAGEUR_03_ORANGE, PIN_LED_MAGEUR_03_ORANGE);
 			break;
 	
 		case LED_RED:
+			gpio_out_off(PORT_LED_MAGEUR_03_GREEN , PIN_LED_MAGEUR_03_GREEN );
+			gpio_out_on (PORT_LED_MAGEUR_03_RED   , PIN_LED_MAGEUR_03_RED   );
+			gpio_out_off(PORT_LED_MAGEUR_03_ORANGE, PIN_LED_MAGEUR_03_ORANGE);
 			break;
 
 		case LED_ORANGE:
+			gpio_out_off(PORT_LED_MAGEUR_03_GREEN , PIN_LED_MAGEUR_03_GREEN );
+			gpio_out_off(PORT_LED_MAGEUR_03_RED   , PIN_LED_MAGEUR_03_RED   );
+			gpio_out_on (PORT_LED_MAGEUR_03_ORANGE, PIN_LED_MAGEUR_03_ORANGE);
 			break
 
 		default:
@@ -292,12 +328,21 @@ void set_led_margeur_04(int etat_margeur)
 	switch(etat_margeur)
 	{
 		case LED_GREEN:
+			gpio_out_on (PORT_LED_MAGEUR_04_GREEN , PIN_LED_MAGEUR_04_GREEN );
+			gpio_out_off(PORT_LED_MAGEUR_04_RED   , PIN_LED_MAGEUR_04_RED   );
+			gpio_out_off(PORT_LED_MAGEUR_04_ORANGE, PIN_LED_MAGEUR_04_ORANGE);
 			break;
 	
 		case LED_RED:
+			gpio_out_off(PORT_LED_MAGEUR_04_GREEN , PIN_LED_MAGEUR_04_GREEN );
+			gpio_out_on (PORT_LED_MAGEUR_04_RED   , PIN_LED_MAGEUR_04_RED   );
+			gpio_out_off(PORT_LED_MAGEUR_04_ORANGE, PIN_LED_MAGEUR_04_ORANGE);
 			break;
 
 		case LED_ORANGE:
+			gpio_out_off(PORT_LED_MAGEUR_04_GREEN , PIN_LED_MAGEUR_04_GREEN );
+			gpio_out_off(PORT_LED_MAGEUR_04_RED   , PIN_LED_MAGEUR_04_RED   );
+			gpio_out_on (PORT_LED_MAGEUR_04_ORANGE, PIN_LED_MAGEUR_04_ORANGE);
 			break
 
 		default:
