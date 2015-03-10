@@ -14,6 +14,8 @@
 /*========================================================*/
 /**********************************************************/
 
+	#include <LPC23xx.H>
+
 // DEFINITION DES NUMEROS DE PORTS
 
 	#define P0 0
@@ -29,5 +31,10 @@
 	void gpio_initialisation(void);
 	void gpio_out_on   (unsigned int numero_port, unsigned int numero_pin); 
 	void gpio_out_off  (unsigned int numero_port, unsigned int numero_pin); 
-	char gpio_get_value(unsigned int numero_port, unsigned int numero_pin)
-	void gpio_affichage(unsigned int numero_port, unsigned int numero_pin)
+	char gpio_get_value(unsigned int numero_port, unsigned int numero_pin);
+	void gpio_affichage(unsigned int numero_port, unsigned int numero_pin);
+
+
+/**********************************************************/
+/********************* FIN FICHIER ************************/
+/**********************************************************/

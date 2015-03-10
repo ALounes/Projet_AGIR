@@ -14,41 +14,26 @@
 /*========================================================*/
 /**********************************************************/
 
-#include <stdio.h>  
-#include "agir_main.h"
+#include <stdio.h> 
+#include "agir_timer.h"
 
-/******************************************/
-/********* INITIALISATION DU VIC **********/
-/******************************************/
 
-void init_vic(void)
+/**********************************************************/
+/************ Fonctions gestion d'interuptions ************/
+/**********************************************************/
+
+void isr_timer0(void)__irq
 {
-	VICVectAddr4  = (unsigned long)isr_timer0;
-	VICVectAddr14 = (unsigned long)isr_bouton; 
-	VICVectAddr23 = (unsigned long)can_reception;
-
-	VICIntEnable |= 1<<4;  // Timer_0 
-	VICIntEnable |= 1<<14; // Bouton
-	VICIntEnable |= 1<<23; // CAN
-}
-
-
-/******************************************/
-/************* FCT PRINCIPALE *************/
-/******************************************/
-
-int main(void)
-{
-
-	init_vic();
+	char buffer[17];
 	
-	T0TCR = 1;
-
-	while(1);
+	/* Affichage reception */
+	sprintf(buffer,"MSG: %d",RECEPTION);
+	lcd_clear();
+	lcd_print(buffer);
 	
-	return 1;
+	T0IR = 1 ;
+	VICVectAddr = 0;
 }
-
 
 
 /**********************************************************/

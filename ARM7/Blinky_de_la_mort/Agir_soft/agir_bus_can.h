@@ -14,6 +14,8 @@
 /*========================================================*/
 /**********************************************************/
 
+	#include <LPC23xx.H>
+
 	#define SIZE_MSG 1
 	#define ID_MODULE_01 01
 	#define ID_MODULE_02 02
@@ -27,3 +29,8 @@
 	void can_initialisation(void);
 	void isr_can_reception(void)__irq;
 	void can_emission(unsigned long valeur ,unsigned char id_message);
+
+
+/**********************************************************/
+/********************* FIN FICHIER ************************/
+/**********************************************************/

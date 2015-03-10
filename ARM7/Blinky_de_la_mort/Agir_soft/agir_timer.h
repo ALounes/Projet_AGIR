@@ -14,40 +14,11 @@
 /*========================================================*/
 /**********************************************************/
 
-#include <stdio.h>  
-#include "agir_main.h"
+	#include <LPC23xx.H>
 
-/******************************************/
-/********* INITIALISATION DU VIC **********/
-/******************************************/
-
-void init_vic(void)
-{
-	VICVectAddr4  = (unsigned long)isr_timer0;
-	VICVectAddr14 = (unsigned long)isr_bouton; 
-	VICVectAddr23 = (unsigned long)can_reception;
-
-	VICIntEnable |= 1<<4;  // Timer_0 
-	VICIntEnable |= 1<<14; // Bouton
-	VICIntEnable |= 1<<23; // CAN
-}
-
-
-/******************************************/
-/************* FCT PRINCIPALE *************/
-/******************************************/
-
-int main(void)
-{
-
-	init_vic();
+	// DECLARATION DES PRO
 	
-	T0TCR = 1;
-
-	while(1);
-	
-	return 1;
-}
+	void isr_timer0(void)__irq;
 
 
 
