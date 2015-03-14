@@ -26,7 +26,7 @@ information :
 	thin-hinane@hotmail.fr
 
 [GITHUB]:
-	https://github.com/Hapinness/Projet_AGIR
+	https://github.com/ALounes/Projet_AGIR
 
 [FACEBOOK]:
 	Projet.Agir@groups.facebook.com
