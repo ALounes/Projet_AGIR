@@ -17,7 +17,6 @@
 #include <stdio.h> 
 #include "agir_bp.h"
 
-
 /**********************************************************/
 /************ Fonctions gestion d'interuptions ************/
 /**********************************************************/
@@ -32,10 +31,15 @@ void bouton_initialisation(void)
 void isr_bouton(void)__irq
 {
 
-	// A FAIRE
+	bouton_traitement();
 
 	EXTINT = 1;
 	VICVectAddr = 0;
+}
+
+void bouton_traitement(void)
+{
+	// A FAIRE 
 }
 
 

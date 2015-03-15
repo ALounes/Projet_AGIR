@@ -20,7 +20,7 @@
 void timer_0_initialisation(void)
 {
 	T0MR0  = TIMER_0_FREQ;
-	T0MCR |= TIMER_10_CONTROL;
+	T0MCR |= TIMER_0_CONTROL;
 }
 
 void timer_1_initialisation(void)
