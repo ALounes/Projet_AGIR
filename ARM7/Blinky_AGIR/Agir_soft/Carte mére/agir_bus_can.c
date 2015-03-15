@@ -41,7 +41,7 @@ void can_emission(unsigned long valeur ,unsigned char id_message)
 	if(CAN1SR & 0x400)
 	{
 		CAN1TFI2 = 0x10000	; // Taille data 1 octet
-		CAN1TID2 = id_message; // id message = 40 
+		CAN1TID2 = id_message; // identificateur du message 
 		CAN1TDA2 = valeur;     // Ecriture data dans buffer TX2
 		CAN1CMR  = 0x41;       // Envoie du message 	
 	}
