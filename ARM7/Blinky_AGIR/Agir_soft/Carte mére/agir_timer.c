@@ -38,7 +38,8 @@ void isr_timer0(void)__irq
 {
 	char buffer[TAILLE_LIGNE_LCD];
 	
-	// A FAIRE !!
+	/* Lancement des communication avec les modules */
+	comunication_module();
 	
 	T0IR = 1 ;
 	VICVectAddr = 0;
@@ -49,7 +50,8 @@ void isr_timer1(void)__irq
 {
 	char buffer[TAILLE_LIGNE_LCD];
 	
-	// A FAIRE !!
+	/* affichage sur l'ecrans LCD de l'etat systeme */
+	affichage_carte_mere();
 	
 	T1IR = 1 ;
 	VICVectAddr = 0;

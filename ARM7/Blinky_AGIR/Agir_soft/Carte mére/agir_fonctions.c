@@ -14,7 +14,7 @@
 /*========================================================*/
 /**********************************************************/
 
-void comunication_module()
+void comunication_module(void)
 {
 	int numero_requette;
 
@@ -98,6 +98,26 @@ int prochaine_requete(const int etat)
 			// ERREUR CAS IMPOSSIBLE !!
 			break;
 	}
+}
+
+/**********************************************************/
+
+void lcd_initialisation(void)
+{
+	lcd_init();
+  	lcd_clear();
+}
+
+void afficher_carte_mere(void)
+{
+	char buffer[17];
+	lcd_clear ();
+	set_cursor (0,0);
+	sprintf(buffer, "%d  %d", );
+	lcd_print(buffer);
+	set_cursor (0,1);
+	sprintf(buffer, "%d - %d - (%d)", );
+	lcd_print(buffer);
 }
 
 
