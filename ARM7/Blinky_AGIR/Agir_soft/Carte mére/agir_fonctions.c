@@ -14,6 +14,81 @@
 /*========================================================*/
 /**********************************************************/
 
+void comunication_module(,int valeur_message, int numero_requete)
+{
+	can_emission(valeur_message, numero_requete)
+}
+
+void mise_a_jour_etat_requette(void)
+{
+	ETAT = (ETAT + 1) % (NOMBRE_MODULE_REEL * 4);
+}
+
+int prochaine_requete(const int etat)
+{
+	switch(etat)
+	{
+
+		/* MODULE 00 */
+		case 0:
+			return RQST_MODULE_0_SECTION_0;
+			break;
+		case 1:
+			return RQST_MODULE_0_SECTION_1;
+			break;
+		case 2:
+			return RQST_MODULE_0_SECTION_2;
+			break;
+		case 3:
+			return RQST_MODULE_0_SECTION_3;
+			break;
+
+		/* MODULE 01 */
+		case 4:
+			return RQST_MODULE_1_SECTION_0;
+			break;
+		case 5:
+			return RQST_MODULE_1_SECTION_1;
+			break;
+		case 6:
+			return RQST_MODULE_1_SECTION_2;
+			break;
+		case 7:
+			return RQST_MODULE_1_SECTION_3;
+			break;
+
+		/* MODULE 02 */
+		case 8:
+			return RQST_MODULE_2_SECTION_0;
+			break;
+		case 9:
+			return RQST_MODULE_2_SECTION_1;
+			break;
+		case 10:
+			return RQST_MODULE_2_SECTION_2;
+			break;
+		case 11:
+			return RQST_MODULE_2_SECTION_3;
+			break;
+
+		/* MODULE 03 */
+		case 12:
+			return RQST_MODULE_3_SECTION_0;
+			break;
+		case 13:
+			return RQST_MODULE_3_SECTION_1;
+			break;
+		case 14:
+			return RQST_MODULE_3_SECTION_2;
+			break;
+		case 15:
+			return RQST_MODULE_3_SECTION_3;
+			break;
+
+		default:
+			break;
+	}
+}
 
 
 /**********************************************************/
