@@ -14,9 +14,18 @@
 /*========================================================*/
 /**********************************************************/
 
-void comunication_module(,int valeur_message, int numero_requete)
+void comunication_module()
 {
-	can_emission(valeur_message, numero_requete)
+	int numero_requette;
+
+	/* Recuperation du numero de la requete a partir de l'etat */	
+	numero_requette = prochaine_requete(ETAT);
+
+	/* Envoie de la requete via le bus can */
+	can_emission(0, numero_requete);	
+
+	/* Mise a jour de la variable etat */
+	mise_a_jour_etat_requette();
 }
 
 void mise_a_jour_etat_requette(void)
@@ -86,6 +95,7 @@ int prochaine_requete(const int etat)
 			break;
 
 		default:
+			// ERREUR CAS IMPOSSIBLE !!
 			break;
 	}
 }

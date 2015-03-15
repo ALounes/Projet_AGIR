@@ -14,8 +14,21 @@
 /*========================================================*/
 /**********************************************************/
 
+#ifndef AGIR_FONCTION_H
+#define AGIR_FONCTION_H
 
+	#include <LPC23xx.H>
 
+	#define NOMBRE_MODULE_REEL 2
+
+	int ETAT_REQUETE = 0;
+
+	int  prochaine_requete(const int etat);
+	void mise_a_jour_etat_requette(void);
+	extern void comunication_module();
+
+#endif
+	
 /**********************************************************/
 /********************* FIN FICHIER ************************/
 /**********************************************************/
