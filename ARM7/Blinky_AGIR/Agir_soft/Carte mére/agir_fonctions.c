@@ -111,12 +111,18 @@ void lcd_initialisation(void)
 void afficher_carte_mere(void)
 {
 	char buffer[17];
+
+	int section_1 = ETAT_SYSTEME[Affichage_module][0];
+	int section_2 = ETAT_SYSTEME[Affichage_module][1];
+	int section_3 = ETAT_SYSTEME[Affichage_module][2];
+	int section_4 = ETAT_SYSTEME[Affichage_module][3];
+
 	lcd_clear ();
 	set_cursor (0,0);
-	sprintf(buffer, "%d  %d", );
+	sprintf(buffer, "%d| %d--%d",Affichage_module,section_1,section_2);
 	lcd_print(buffer);
 	set_cursor (0,1);
-	sprintf(buffer, "%d - %d - (%d)", );
+	sprintf(buffer, " | %d -- %d",section_3,section_4);
 	lcd_print(buffer);
 }
 

@@ -39,7 +39,7 @@ void isr_bouton(void)__irq
 
 void bouton_traitement(void)
 {
-	// A FAIRE 
+	Affichage_module = (Affichage_module + 1)%NOMBRE_MODULE_REEL ;
 }
 
 

@@ -25,6 +25,8 @@
 
 	int  prochaine_requete(const int etat);
 	void mise_a_jour_etat_requette(void);
+
+	extern int  Affichage_module = 0;
 	extern void comunication_module(void);
 
 	void lcd_initialisation(void);
