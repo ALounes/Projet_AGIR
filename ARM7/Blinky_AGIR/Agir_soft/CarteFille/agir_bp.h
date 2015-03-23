@@ -17,13 +17,9 @@
 #ifndef AGIR_BP_H
 #define AGIR_BP_H
 
-
-	#include <LPC23xx.H>
-	#include "agir_bus_can.h"
-
-
 	// DECLARATION DES PRO
 
+	
 	void bouton_initialisation(void);
 	void isr_bouton(void)__irq;
 	void bouton_traitement(void);

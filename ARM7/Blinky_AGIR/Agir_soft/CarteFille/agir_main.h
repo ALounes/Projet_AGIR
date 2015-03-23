@@ -14,19 +14,15 @@
 /*========================================================*/
 /**********************************************************/
 
-#ifndef AGIR_BUS_CAN_H
-#define AGIR_BUS_CAN_H
-
-
-	#include <LPC23xx.H>
-	#include "agir_bus_can.h"
+#ifndef AGIR_MAIN_H
+#define AGIR_MAIN_H
 
 
 	// DECLARATION DES PRO
 
-	void isr_bouton(void)__irq;
+	void vic_initialisation(void);
 
-
+#endif
 
 /**********************************************************/
 /********************* FIN FICHIER ************************/

@@ -14,42 +14,17 @@
 /*========================================================*/
 /**********************************************************/
 
-#include <stdio.h>  
-#include "agir_main.h"
+#ifndef AGIR_BP_H
+#define AGIR_BP_H
 
-/******************************************/
-/********* INITIALISATION DU VIC **********/
-/******************************************/
+	// DECLARATION DES PRO
 
-void init_vic(void)
-{
-	VICVectAddr4  = (unsigned long)isr_timer0;
-	VICVectAddr14 = (unsigned long)isr_bouton; 
-	VICVectAddr23 = (unsigned long)can_reception;
-
-	VICIntEnable |= 1<<4;  // Timer_0 
-	VICIntEnable |= 1<<14; // Bouton
-	VICIntEnable |= 1<<23; // CAN
-}
-
-
-/******************************************/
-/************* FCT PRINCIPALE *************/
-/******************************************/
-
-int main(void)
-{
-
-	init_vic();
 	
-	T0TCR = 1;
+	void bouton_initialisation(void);
+	void isr_bouton(void)__irq;
+	void bouton_traitement(void);
 
-	while(1);
-	
-	return 1;
-}
-
-
+#endif 
 
 /**********************************************************/
 /********************* FIN FICHIER ************************/

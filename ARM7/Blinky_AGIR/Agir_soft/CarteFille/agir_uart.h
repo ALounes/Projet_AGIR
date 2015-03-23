@@ -14,48 +14,39 @@
 /*========================================================*/
 /**********************************************************/
 
-#include <stdio.h> 
-#include "agir_timer.h"
+#ifndef AGIR_UART_H
+#define AGIR_UART_H
 
-void timer_0_initialisation(void)
-{
-	T0MR0  = TIMER_0_FREQ;
-	T0MCR |= TIMER_0_CONTROL;
-}
+	/* Use UART 0 for printf             */
+	#define UART1                            
 
-void timer_1_initialisation(void)
-{
-	T1MR0  = TIMER_1_FREQ;
-	T1MCR |= TIMER_1_CONTROL;
-}
+	/* If UART 0 is used for printf */
+	#ifdef UART0
+	  #define UxFDR  U0FDR
+	  #define UxLCR  U0LCR
+	  #define UxDLL  U0DLL
+	  #define UxDLM  U0DLM
+	  #define UxLSR  U0LSR
+	  #define UxTHR  U0THR
+	  #define UxRBR  U0RBR
+	/* If UART 1 is used for printf */
+	#elif defined(UART1)
+	  #define UxFDR  U1FDR
+	  #define UxLCR  U1LCR
+	  #define UxDLL  U1DLL
+	  #define UxDLM  U1DLM
+	  #define UxLSR  U1LSR
+	  #define UxTHR  U1THR
+	  #define UxRBR  U1RBR
+	#endif
 
+	// Declaration des protos
 
-/**********************************************************/
-/************ Fonctions gestion d'interuptions ************/
-/**********************************************************/
+	int  uart_reception (void); 
+	int  uart_emission (int data);
+	void uart_initialisation (void);
 
-void isr_timer0(void)__irq
-{
-	char buffer[TAILLE_LIGNE_LCD];
-	
-	/* Lancement des communication avec les modules */
-	comunication_module();
-	
-	T0IR = 1 ;
-	VICVectAddr = 0;
-}
-
-
-void isr_timer1(void)__irq
-{
-	char buffer[TAILLE_LIGNE_LCD];
-	
-	/* affichage sur l'ecrans LCD de l'etat systeme */
-	affichage_carte_mere();
-	
-	T1IR = 1 ;
-	VICVectAddr = 0;
-}
+#endif 
 
 
 /**********************************************************/
