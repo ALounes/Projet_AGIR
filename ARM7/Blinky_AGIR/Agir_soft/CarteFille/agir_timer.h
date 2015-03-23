@@ -33,7 +33,6 @@
 	void isr_timer0(void)__irq;
 	void isr_timer1(void)__irq;
 
-	extern void comunication_module(void);
 #endif
 
 /**********************************************************/

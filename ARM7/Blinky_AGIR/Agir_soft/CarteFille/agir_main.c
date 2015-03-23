@@ -25,10 +25,7 @@
 
 
 // Def Variables glob
-int ETAT_REQUETE = 0;
-int Affichage_module = 0;
-int ETAT = 0;
-int ETAT_SYSTEME[NBR_MODULE][TAILLE_MODULE];
+int ETAT_SYSTEME[TAILLE_MODULE];
 
 
 /******************************************/
@@ -58,8 +55,7 @@ int main(void)
 	timer_0_initialisation();
 	timer_1_initialisation();
 	bouton_initialisation();
-	//gpio_initialisation();
-	uart_initialisation();
+	gpio_initialisation();
 	can_initialisation();
 	lcd_initialisation();
 

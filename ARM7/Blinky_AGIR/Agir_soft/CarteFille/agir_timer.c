@@ -41,7 +41,7 @@ void isr_timer0(void)__irq
 	char buffer[TAILLE_LIGNE_LCD];
 
 	/* affichage sur l'ecrans LCD de l'etat systeme */
-	afficher_carte_mere();	
+	afficher_carte_fille();	
 	
 	T0IR = 1 ;
 	VICVectAddr = 0;
@@ -53,7 +53,7 @@ void isr_timer1(void)__irq
 	char buffer[TAILLE_LIGNE_LCD];
 	
 	/* Lancement des communication avec les modules */
-	comunication_module();
+	//comunication_module();
 	
 	T1IR = 1 ;
 	VICVectAddr = 0;

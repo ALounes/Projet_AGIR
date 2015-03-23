@@ -25,6 +25,11 @@
 	/***************************************************/
 	/* DEFINITION DES IDENTIFICATEURS POUR LES MESSAGES*/
 	/***************************************************/
+	#define ID_MODULE_SECTION_0	ID_MODULE_0_SECTION_0
+	#define ID_MODULE_SECTION_1	ID_MODULE_0_SECTION_1
+	#define ID_MODULE_SECTION_2	ID_MODULE_0_SECTION_2
+	#define ID_MODULE_SECTION_3	ID_MODULE_0_SECTION_3
+
 
 	/* Idetificateur de message pour le module 00 */
 	#define ID_MODULE_0_SECTION_0  100

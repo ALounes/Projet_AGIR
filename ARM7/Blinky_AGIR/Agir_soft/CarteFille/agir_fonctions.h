@@ -19,12 +19,8 @@
 
 	#define  NOMBRE_MODULE_REEL 2 
 
-	int  prochaine_requete(const int etat);
-	void mise_a_jour_etat_requette(void);
-	void mise_a_jour_affichage_module(void);
-	void comunication_module(void);
 	void lcd_initialisation(void);
-	void afficher_carte_mere(void);
+	void afficher_carte_fille(void);
 
 #endif
 	
