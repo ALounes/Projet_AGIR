@@ -146,82 +146,139 @@ char gpio_get_value(unsigned int numero_port, unsigned int numero_pin)
 }
 
 
-void gpio_all_out_off(void)
+void set_led_margeur_00(int etat_margeur)
 {
-	// Contacteur OFF 
-	contacteur_all_red();
-
-	// Led Turned on a RED value
-	led_all_off();
-}
-
-void relais_all_on(void)
-{
-	set_relais_margeur(RELAIS_00, RELAIS_ON);
-	set_relais_margeur(RELAIS_01, RELAIS_ON);
-	set_relais_margeur(RELAIS_02, RELAIS_ON);
-	set_relais_margeur(RELAIS_03, RELAIS_ON);
-}
-
-void relais_all_off(void)
-{
-	set_relais_margeur(RELAIS_00, RELAIS_OFF);
-	set_relais_margeur(RELAIS_01, RELAIS_OFF);
-	set_relais_margeur(RELAIS_02, RELAIS_OFF);
-	set_relais_margeur(RELAIS_03, RELAIS_OFF);	
-}
-
-void set_relais_margeur(int margeur, int etat_margeur)
-{
-	switch(margeur)
+	switch(etat_margeur)
 	{
-		case MARGEUR_00:
-			set_led_margeur_00(etat_margeur);
+		case LED_GREEN:
+			gpio_out_on (PORT_LED_MARGEUR_00_GREEN , PIN_LED_MARGEUR_00_GREEN );
+			gpio_out_off(PORT_LED_MARGEUR_00_RED   , PIN_LED_MARGEUR_00_RED   );
+			gpio_out_off(PORT_LED_MARGEUR_00_ORANGE, PIN_LED_MARGEUR_00_ORANGE);
+			break;
+	
+		case LED_RED:
+			gpio_out_off(PORT_LED_MARGEUR_00_GREEN , PIN_LED_MARGEUR_00_GREEN );
+			gpio_out_on (PORT_LED_MARGEUR_00_RED   , PIN_LED_MARGEUR_00_RED   );
+			gpio_out_off(PORT_LED_MARGEUR_00_ORANGE, PIN_LED_MARGEUR_00_ORANGE);
 			break;
 
-		case MARGEUR_01:
-			set_led_margeur_01(etat_margeur);
-			break;
-
-		case MARGEUR_02:
-			set_led_margeur_02(etat_margeur);
-			break;
-
-		case MARGEUR_03:
-			set_led_margeur_03(etat_margeur);
-			break;
+		case LED_ORANGE:
+			gpio_out_off(PORT_LED_MARGEUR_00_GREEN , PIN_LED_MARGEUR_00_GREEN );
+			gpio_out_off(PORT_LED_MARGEUR_00_RED   , PIN_LED_MARGEUR_00_RED   );
+			gpio_out_on (PORT_LED_MARGEUR_00_ORANGE, PIN_LED_MARGEUR_00_ORANGE);
+			break
 
 		default:
-			break;	
+			break;
 	}
 }
 
-
-void led_all_red(void)
+void set_led_margeur_01(int etat_margeur)
 {
-	set_led_margeur(MARGEUR_00, LED_RED);
-	set_led_margeur(MARGEUR_01, LED_RED);
-	set_led_margeur(MARGEUR_02, LED_RED);
-	set_led_margeur(MARGEUR_03, LED_RED);
-	set_led_margeur(MARGEUR_04, LED_RED);
+	switch(etat_margeur)
+	{
+		case LED_GREEN:
+			gpio_out_on (PORT_LED_MARGEUR_01_GREEN , PIN_LED_MARGEUR_01_GREEN );
+			gpio_out_off(PORT_LED_MARGEUR_01_RED   , PIN_LED_MARGEUR_01_RED   );
+			gpio_out_off(PORT_LED_MARGEUR_01_ORANGE, PIN_LED_MARGEUR_01_ORANGE);
+			break;
+	
+		case LED_RED:
+			gpio_out_off(PORT_LED_MARGEUR_01_GREEN , PIN_LED_MARGEUR_01_GREEN );
+			gpio_out_on (PORT_LED_MARGEUR_01_RED   , PIN_LED_MARGEUR_01_RED   );
+			gpio_out_off(PORT_LED_MARGEUR_01_ORANGE, PIN_LED_MARGEUR_01_ORANGE);
+			break;
+
+		case LED_ORANGE:
+			gpio_out_off(PORT_LED_MARGEUR_01_GREEN , PIN_LED_MARGEUR_01_GREEN );
+			gpio_out_off(PORT_LED_MARGEUR_01_RED   , PIN_LED_MARGEUR_01_RED   );
+			gpio_out_on (PORT_LED_MARGEUR_01_ORANGE, PIN_LED_MARGEUR_01_ORANGE);
+			break
+
+		default:
+			break;
+	}
 }
 
-void led_all_green(void)
+void set_led_margeur_02(int etat_margeur)
 {
-	set_led_margeur(MARGEUR_00, LED_GREEN);
-	set_led_margeur(MARGEUR_01, LED_GREEN);
-	set_led_margeur(MARGEUR_02, LED_GREEN);
-	set_led_margeur(MARGEUR_03, LED_GREEN);
-	set_led_margeur(MARGEUR_04, LED_GREEN);	
+	switch(etat_margeur)
+	{
+		case LED_GREEN:
+			gpio_out_on (PORT_LED_MARGEUR_02_GREEN , PIN_LED_MARGEUR_02_GREEN );
+			gpio_out_off(PORT_LED_MARGEUR_02_RED   , PIN_LED_MARGEUR_02_RED   );
+			gpio_out_off(PORT_LED_MARGEUR_02_ORANGE, PIN_LED_MARGEUR_02_ORANGE);
+			break;
+	
+		case LED_RED:
+			gpio_out_off(PORT_LED_MARGEUR_02_GREEN , PIN_LED_MARGEUR_02_GREEN );
+			gpio_out_on (PORT_LED_MARGEUR_02_RED   , PIN_LED_MARGEUR_02_RED   );
+			gpio_out_off(PORT_LED_MARGEUR_02_ORANGE, PIN_LED_MARGEUR_02_ORANGE);
+			break;
+
+		case LED_ORANGE:
+			gpio_out_off(PORT_LED_MARGEUR_02_GREEN , PIN_LED_MARGEUR_02_GREEN );
+			gpio_out_off(PORT_LED_MARGEUR_02_RED   , PIN_LED_MARGEUR_02_RED   );
+			gpio_out_on (PORT_LED_MARGEUR_02_ORANGE, PIN_LED_MARGEUR_02_ORANGE);
+			break
+
+		default:
+			break;
+	}
 }
 
-void led_all_orange(void)
+void set_led_margeur_03(int etat_margeur)
 {
-	set_led_margeur(MARGEUR_00, LED_ORANGE);
-	set_led_margeur(MARGEUR_01, LED_ORANGE);
-	set_led_margeur(MARGEUR_02, LED_ORANGE);
-	set_led_margeur(MARGEUR_03, LED_ORANGE);
-	set_led_margeur(MARGEUR_04, LED_ORANGE);
+	switch(etat_margeur)
+	{
+		case LED_GREEN:
+			gpio_out_on (PORT_LED_MARGEUR_03_GREEN , PIN_LED_MARGEUR_03_GREEN );
+			gpio_out_off(PORT_LED_MARGEUR_03_RED   , PIN_LED_MARGEUR_03_RED   );
+			gpio_out_off(PORT_LED_MARGEUR_03_ORANGE, PIN_LED_MARGEUR_03_ORANGE);
+			break;
+	
+		case LED_RED:
+			gpio_out_off(PORT_LED_MARGEUR_03_GREEN , PIN_LED_MARGEUR_03_GREEN );
+			gpio_out_on (PORT_LED_MARGEUR_03_RED   , PIN_LED_MARGEUR_03_RED   );
+			gpio_out_off(PORT_LED_MARGEUR_03_ORANGE, PIN_LED_MARGEUR_03_ORANGE);
+			break;
+
+		case LED_ORANGE:
+			gpio_out_off(PORT_LED_MARGEUR_03_GREEN , PIN_LED_MARGEUR_03_GREEN );
+			gpio_out_off(PORT_LED_MARGEUR_03_RED   , PIN_LED_MARGEUR_03_RED   );
+			gpio_out_on (PORT_LED_MARGEUR_03_ORANGE, PIN_LED_MARGEUR_03_ORANGE);
+			break
+
+		default:
+			break;
+	}
+}
+
+void set_led_margeur_04(int etat_margeur)
+{
+	switch(etat_margeur)
+	{
+		case LED_GREEN:
+			gpio_out_on (PORT_LED_MARGEUR_04_GREEN , PIN_LED_MARGEUR_04_GREEN );
+			gpio_out_off(PORT_LED_MARGEUR_04_RED   , PIN_LED_MARGEUR_04_RED   );
+			gpio_out_off(PORT_LED_MARGEUR_04_ORANGE, PIN_LED_MARGEUR_04_ORANGE);
+			break;
+	
+		case LED_RED:
+			gpio_out_off(PORT_LED_MARGEUR_04_GREEN , PIN_LED_MARGEUR_04_GREEN );
+			gpio_out_on (PORT_LED_MARGEUR_04_RED   , PIN_LED_MARGEUR_04_RED   );
+			gpio_out_off(PORT_LED_MARGEUR_04_ORANGE, PIN_LED_MARGEUR_04_ORANGE);
+			break;
+
+		case LED_ORANGE:
+			gpio_out_off(PORT_LED_MARGEUR_04_GREEN , PIN_LED_MARGEUR_04_GREEN );
+			gpio_out_off(PORT_LED_MARGEUR_04_RED   , PIN_LED_MARGEUR_04_RED   );
+			gpio_out_on (PORT_LED_MARGEUR_04_ORANGE, PIN_LED_MARGEUR_04_ORANGE);
+			break
+
+		default:
+			break;
+	}
 }
 
 void set_led_margeur(int margeur, int etat_margeur)
@@ -253,26 +310,71 @@ void set_led_margeur(int margeur, int etat_margeur)
 	}
 }
 
-void set_led_margeur_00(int etat_margeur)
+void led_all_red(void)
 {
-	switch(etat_margeur)
+	set_led_margeur(MARGEUR_00, LED_RED);
+	set_led_margeur(MARGEUR_01, LED_RED);
+	set_led_margeur(MARGEUR_02, LED_RED);
+	set_led_margeur(MARGEUR_03, LED_RED);
+	set_led_margeur(MARGEUR_04, LED_RED);
+}
+
+void led_all_green(void)
+{
+	set_led_margeur(MARGEUR_00, LED_GREEN);
+	set_led_margeur(MARGEUR_01, LED_GREEN);
+	set_led_margeur(MARGEUR_02, LED_GREEN);
+	set_led_margeur(MARGEUR_03, LED_GREEN);
+	set_led_margeur(MARGEUR_04, LED_GREEN);	
+}
+
+void led_all_orange(void)
+{
+	set_led_margeur(MARGEUR_00, LED_ORANGE);
+	set_led_margeur(MARGEUR_01, LED_ORANGE);
+	set_led_margeur(MARGEUR_02, LED_ORANGE);
+	set_led_margeur(MARGEUR_03, LED_ORANGE);
+	set_led_margeur(MARGEUR_04, LED_ORANGE);
+}
+
+
+void set_relais_margeur(int relais, int etat_relais)
+{
+	switch(relais)
 	{
-		case LED_GREEN:
-			gpio_out_on (PORT_LED_MAGEUR_00_GREEN , PIN_LED_MAGEUR_00_GREEN );
-			gpio_out_off(PORT_LED_MAGEUR_00_RED   , PIN_LED_MAGEUR_00_RED   );
-			gpio_out_off(PORT_LED_MAGEUR_00_ORANGE, PIN_LED_MAGEUR_00_ORANGE);
+		case RELAIS_00:
+			if (etat_relais == RELAIS_ON)
+				gpio_out_on(PORT_RELAIS_MARGEUR_00,PIN_RELAIS_MARGEUR_00);
+			else
+				gpio_out_off(PORT_RELAIS_MARGEUR_00,PIN_RELAIS_MARGEUR_00);
 			break;
 	
-		case LED_RED:
-			gpio_out_off(PORT_LED_MAGEUR_00_GREEN , PIN_LED_MAGEUR_00_GREEN );
-			gpio_out_on (PORT_LED_MAGEUR_00_RED   , PIN_LED_MAGEUR_00_RED   );
-			gpio_out_off(PORT_LED_MAGEUR_00_ORANGE, PIN_LED_MAGEUR_00_ORANGE);
+		case RELAIS_01:
+			if (etat_relais == RELAIS_ON)
+				gpio_out_on(PORT_RELAIS_MARGEUR_01,PIN_RELAIS_MARGEUR_01);
+			else
+				gpio_out_off(PORT_RELAIS_MARGEUR_01,PIN_RELAIS_MARGEUR_01);
 			break;
 
-		case LED_ORANGE:
-			gpio_out_off(PORT_LED_MAGEUR_00_GREEN , PIN_LED_MAGEUR_00_GREEN );
-			gpio_out_off(PORT_LED_MAGEUR_00_RED   , PIN_LED_MAGEUR_00_RED   );
-			gpio_out_on (PORT_LED_MAGEUR_00_ORANGE, PIN_LED_MAGEUR_00_ORANGE);
+		case RELAIS_02:
+			if (etat_relais == RELAIS_ON)
+				gpio_out_on(PORT_RELAIS_MARGEUR_02,PIN_RELAIS_MARGEUR_02);
+			else
+				gpio_out_off(PORT_RELAIS_MARGEUR_02,PIN_RELAIS_MARGEUR_02);
+			break
+
+		case RELAIS_03:
+			if (etat_relais == RELAIS_ON)
+				gpio_out_on(PORT_RELAIS_MARGEUR_03,PIN_RELAIS_MARGEUR_03);
+			else
+				gpio_out_off(PORT_RELAIS_MARGEUR_03,PIN_RELAIS_MARGEUR_03);
+			break
+
+		case RELAIS_04:
+			if (etat_relais == RELAIS_ON)
+				gpio_out_on(PORT_RELAIS_MARGEUR_04,PIN_RELAIS_MARGEUR_04);
+			else
+				gpio_out_off(PORT_RELAIS_MARGEUR_04,PIN_RELAIS_MARGEUR_04);
 			break
 
 		default:
@@ -280,113 +382,31 @@ void set_led_margeur_00(int etat_margeur)
 	}
 }
 
-void set_led_margeur_01(int etat_margeur)
+void gpio_all_out_off(void)
 {
-	switch(etat_margeur)
-	{
-		case LED_GREEN:
-			gpio_out_on (PORT_LED_MAGEUR_01_GREEN , PIN_LED_MAGEUR_01_GREEN );
-			gpio_out_off(PORT_LED_MAGEUR_01_RED   , PIN_LED_MAGEUR_01_RED   );
-			gpio_out_off(PORT_LED_MAGEUR_01_ORANGE, PIN_LED_MAGEUR_01_ORANGE);
-			break;
-	
-		case LED_RED:
-			gpio_out_off(PORT_LED_MAGEUR_01_GREEN , PIN_LED_MAGEUR_01_GREEN );
-			gpio_out_on (PORT_LED_MAGEUR_01_RED   , PIN_LED_MAGEUR_01_RED   );
-			gpio_out_off(PORT_LED_MAGEUR_01_ORANGE, PIN_LED_MAGEUR_01_ORANGE);
-			break;
+	// Contacteur OFF 
+	relais_all_off();
 
-		case LED_ORANGE:
-			gpio_out_off(PORT_LED_MAGEUR_01_GREEN , PIN_LED_MAGEUR_01_GREEN );
-			gpio_out_off(PORT_LED_MAGEUR_01_RED   , PIN_LED_MAGEUR_01_RED   );
-			gpio_out_on (PORT_LED_MAGEUR_01_ORANGE, PIN_LED_MAGEUR_01_ORANGE);
-			break
-
-		default:
-			break;
-	}
+	// Led Turned on a RED value
+	led_all_off();
 }
 
-void set_led_margeur_02(int etat_margeur)
+void relais_all_on(void)
 {
-	switch(etat_margeur)
-	{
-		case LED_GREEN:
-			gpio_out_on (PORT_LED_MAGEUR_02_GREEN , PIN_LED_MAGEUR_02_GREEN );
-			gpio_out_off(PORT_LED_MAGEUR_02_RED   , PIN_LED_MAGEUR_02_RED   );
-			gpio_out_off(PORT_LED_MAGEUR_02_ORANGE, PIN_LED_MAGEUR_02_ORANGE);
-			break;
-	
-		case LED_RED:
-			gpio_out_off(PORT_LED_MAGEUR_02_GREEN , PIN_LED_MAGEUR_02_GREEN );
-			gpio_out_on (PORT_LED_MAGEUR_02_RED   , PIN_LED_MAGEUR_02_RED   );
-			gpio_out_off(PORT_LED_MAGEUR_02_ORANGE, PIN_LED_MAGEUR_02_ORANGE);
-			break;
-
-		case LED_ORANGE:
-			gpio_out_off(PORT_LED_MAGEUR_02_GREEN , PIN_LED_MAGEUR_02_GREEN );
-			gpio_out_off(PORT_LED_MAGEUR_02_RED   , PIN_LED_MAGEUR_02_RED   );
-			gpio_out_on (PORT_LED_MAGEUR_02_ORANGE, PIN_LED_MAGEUR_02_ORANGE);
-			break
-
-		default:
-			break;
-	}
+	set_relais_margeur(RELAIS_00, RELAIS_ON);
+	set_relais_margeur(RELAIS_01, RELAIS_ON);
+	set_relais_margeur(RELAIS_02, RELAIS_ON);
+	set_relais_margeur(RELAIS_03, RELAIS_ON);
 }
 
-void set_led_margeur_03(int etat_margeur)
+void relais_all_off(void)
 {
-	switch(etat_margeur)
-	{
-		case LED_GREEN:
-			gpio_out_on (PORT_LED_MAGEUR_03_GREEN , PIN_LED_MAGEUR_03_GREEN );
-			gpio_out_off(PORT_LED_MAGEUR_03_RED   , PIN_LED_MAGEUR_03_RED   );
-			gpio_out_off(PORT_LED_MAGEUR_03_ORANGE, PIN_LED_MAGEUR_03_ORANGE);
-			break;
-	
-		case LED_RED:
-			gpio_out_off(PORT_LED_MAGEUR_03_GREEN , PIN_LED_MAGEUR_03_GREEN );
-			gpio_out_on (PORT_LED_MAGEUR_03_RED   , PIN_LED_MAGEUR_03_RED   );
-			gpio_out_off(PORT_LED_MAGEUR_03_ORANGE, PIN_LED_MAGEUR_03_ORANGE);
-			break;
-
-		case LED_ORANGE:
-			gpio_out_off(PORT_LED_MAGEUR_03_GREEN , PIN_LED_MAGEUR_03_GREEN );
-			gpio_out_off(PORT_LED_MAGEUR_03_RED   , PIN_LED_MAGEUR_03_RED   );
-			gpio_out_on (PORT_LED_MAGEUR_03_ORANGE, PIN_LED_MAGEUR_03_ORANGE);
-			break
-
-		default:
-			break;
-	}
+	set_relais_margeur(RELAIS_00, RELAIS_OFF);
+	set_relais_margeur(RELAIS_01, RELAIS_OFF);
+	set_relais_margeur(RELAIS_02, RELAIS_OFF);
+	set_relais_margeur(RELAIS_03, RELAIS_OFF);	
 }
 
-void set_led_margeur_04(int etat_margeur)
-{
-	switch(etat_margeur)
-	{
-		case LED_GREEN:
-			gpio_out_on (PORT_LED_MAGEUR_04_GREEN , PIN_LED_MAGEUR_04_GREEN );
-			gpio_out_off(PORT_LED_MAGEUR_04_RED   , PIN_LED_MAGEUR_04_RED   );
-			gpio_out_off(PORT_LED_MAGEUR_04_ORANGE, PIN_LED_MAGEUR_04_ORANGE);
-			break;
-	
-		case LED_RED:
-			gpio_out_off(PORT_LED_MAGEUR_04_GREEN , PIN_LED_MAGEUR_04_GREEN );
-			gpio_out_on (PORT_LED_MAGEUR_04_RED   , PIN_LED_MAGEUR_04_RED   );
-			gpio_out_off(PORT_LED_MAGEUR_04_ORANGE, PIN_LED_MAGEUR_04_ORANGE);
-			break;
-
-		case LED_ORANGE:
-			gpio_out_off(PORT_LED_MAGEUR_04_GREEN , PIN_LED_MAGEUR_04_GREEN );
-			gpio_out_off(PORT_LED_MAGEUR_04_RED   , PIN_LED_MAGEUR_04_RED   );
-			gpio_out_on (PORT_LED_MAGEUR_04_ORANGE, PIN_LED_MAGEUR_04_ORANGE);
-			break
-
-		default:
-			break;
-	}
-}
 
 void gpio_affichage(unsigned int numero_port, unsigned int numero_pin) 
 {
@@ -424,7 +444,6 @@ void gpio_affichage(unsigned int numero_port, unsigned int numero_pin)
 
 	lcd_print (str);}
 }
-
 
 
 /**********************************************************/

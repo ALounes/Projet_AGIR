@@ -33,17 +33,12 @@ void afficher_carte_fille(void)
 {
 	char buffer[17];
 
-	int section_1 = ETAT_SYSTEME[0];
-	int section_2 = ETAT_SYSTEME[1];
-	int section_3 = ETAT_SYSTEME[2];
-	int section_4 = ETAT_SYSTEME[3];
-
 	lcd_clear ();
 	set_cursor (0,0);
-	sprintf(buffer, "LED:%d CON:%d",section_1,section_2);
+	sprintf(buffer, "LED:%d CON:%d",ETAT_SYSTEME[0],ETAT_SYSTEME[1]);
 	lcd_print(buffer);
 	set_cursor (0,1);
-	sprintf(buffer, "BOT:%d CAP:%d",section_3,section_4);
+	sprintf(buffer, "BOT:%d CAP:%d",ETAT_SYSTEME[2],ETAT_SYSTEME[3]);
 	lcd_print(buffer);
 }
 
