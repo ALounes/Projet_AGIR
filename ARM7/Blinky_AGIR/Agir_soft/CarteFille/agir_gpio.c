@@ -493,7 +493,7 @@ void relais_traitement(void)
 {
 	// SI le BP du margeur 0 est en oFF tout est en OFF
 	if (ETAT_SYSTEME[0] == 0)
-		relais_all_off(void)
+		relais_all_off();
 	else
 	{
 		// ON test pour chaque margeur si son BP correspondant n'est pas en OFF
@@ -525,9 +525,42 @@ void capteur_traitement(void)
 	
 void led_traitement(void)
 {
+		// SI le BP du margeur 0 est en oFF tout est en OFF
+	if (ETAT_SYSTEME[1] == 0)
+		led_all_red();
+	else
+	{
+		// ON test pour chaque margeur si son BP correspondant n'est pas en OFF
+		// et on recopie la valeur de la commande
+		if( ((ETAT_SYSTEME[1] >> 0) & 1) == 0 )
+			set_led_margeur_00(LED_RED);
+		else
+			set_led_margeur_00(LED_GREEN);
 
+		if( ((ETAT_SYSTEME[1] >> 1) & 1) == 0 )
+			set_led_margeur_01(LED_RED);
+		else
+			set_led_margeur_01(LED_GREEN);
+
+		if( ((ETAT_SYSTEME[1] >> 2) & 1) == 0 )
+			set_led_margeur_02(LED_RED);
+		else
+			set_led_margeur_02(LED_GREEN);
+
+		if( ((ETAT_SYSTEME[1] >> 3) & 1) == 0 )
+			set_led_margeur_03(LED_RED);
+		else
+			set_led_margeur_03(LED_GREEN);
+
+		if( ((ETAT_SYSTEME[1] >> 4) & 1) == 0 )
+			set_led_margeur_04(LED_RED);
+		else
+			set_led_margeur_04(LED_GREEN);
+
+	}
 }
 
 /**********************************************************/
 /********************* FIN FICHIER ************************/
 /**********************************************************/
+
