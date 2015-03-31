@@ -468,11 +468,24 @@ void gpio_traitement(void)
 int bp_traitement(void)
 {
 	int arret_urgence = 0;
-	gpio_get_value(PORT_BP_MARGEUR_00,PIN_BP_MARGEUR_00)
-	gpio_get_value(PORT_BP_MARGEUR_01,PIN_BP_MARGEUR_01)
-	gpio_get_value(PORT_BP_MARGEUR_02,PIN_BP_MARGEUR_02)
-	gpio_get_value(PORT_BP_MARGEUR_03,PIN_BP_MARGEUR_03)
-	gpio_get_value(PORT_BP_MARGEUR_04,PIN_BP_MARGEUR_04)
+
+	if(gpio_get_value(PORT_BP_MARGEUR_00,PIN_BP_MARGEUR_00) == 0)
+	{
+	
+		arret_urgence = -1;
+	}
+	else
+	{
+		// Correspond au bouton d'arret d'urgence !! 
+		ETAT_SYSTEME[0] = gpio_get_value(PORT_BP_MARGEUR_00,PIN_BP_MARGEUR_00);
+
+		// Correspond au 4 margeur 
+		ETAT_SYSTEME[0] = (ETAT_SYSTEME[0] & 0xFE)+ (gpio_get_value(PORT_BP_MARGEUR_01,PIN_BP_MARGEUR_01) << 1);
+		ETAT_SYSTEME[0] = (ETAT_SYSTEME[0] & 0xFD)+ (gpio_get_value(PORT_BP_MARGEUR_02,PIN_BP_MARGEUR_02) << 2);
+		ETAT_SYSTEME[0] = (ETAT_SYSTEME[0] & 0xFB)+ (gpio_get_value(PORT_BP_MARGEUR_03,PIN_BP_MARGEUR_03) << 3);
+		ETAT_SYSTEME[0] = (ETAT_SYSTEME[0] & 0xF7)+ (gpio_get_value(PORT_BP_MARGEUR_04,PIN_BP_MARGEUR_04) << 4);
+	}
+
 	return arret_urgence;
 }
 

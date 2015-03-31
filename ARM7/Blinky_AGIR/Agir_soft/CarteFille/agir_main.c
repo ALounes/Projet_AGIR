@@ -25,7 +25,7 @@
 
 
 // Def Variables glob
-int ETAT_SYSTEME[TAILLE_MODULE];
+char ETAT_SYSTEME[TAILLE_MODULE];
 
 
 /******************************************/
