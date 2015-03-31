@@ -481,9 +481,9 @@ int bp_traitement(void)
 
 		// Correspond au 4 margeur 
 		ETAT_SYSTEME[0] = (ETAT_SYSTEME[0] & 0xFE)+ (gpio_get_value(PORT_BP_MARGEUR_01,PIN_BP_MARGEUR_01) << 1);
-		ETAT_SYSTEME[0] = (ETAT_SYSTEME[0] & 0xFD)+ (gpio_get_value(PORT_BP_MARGEUR_02,PIN_BP_MARGEUR_02) << 2);
-		ETAT_SYSTEME[0] = (ETAT_SYSTEME[0] & 0xFB)+ (gpio_get_value(PORT_BP_MARGEUR_03,PIN_BP_MARGEUR_03) << 3);
-		ETAT_SYSTEME[0] = (ETAT_SYSTEME[0] & 0xF7)+ (gpio_get_value(PORT_BP_MARGEUR_04,PIN_BP_MARGEUR_04) << 4);
+		ETAT_SYSTEME[0] = (ETAT_SYSTEME[0] & 0xFB)+ (gpio_get_value(PORT_BP_MARGEUR_02,PIN_BP_MARGEUR_02) << 2);
+		ETAT_SYSTEME[0] = (ETAT_SYSTEME[0] & 0xF7)+ (gpio_get_value(PORT_BP_MARGEUR_03,PIN_BP_MARGEUR_03) << 3);
+		ETAT_SYSTEME[0] = (ETAT_SYSTEME[0] & 0xEF)+ (gpio_get_value(PORT_BP_MARGEUR_04,PIN_BP_MARGEUR_04) << 4);
 	}
 
 	return arret_urgence;
@@ -516,6 +516,14 @@ void relais_traitement(void)
 }
 
 void capteur_traitement(void)
+{
+		ETAT_SYSTEME[2] = (ETAT_SYSTEME[2] & 0xFE)+ (gpio_get_value(PORT_CAPTEUR_MARGEUR_01,PIN_CAPTEUR_MARGEUR_01) << 0);
+		ETAT_SYSTEME[2] = (ETAT_SYSTEME[2] & 0xFC)+ (gpio_get_value(PORT_CAPTEUR_MARGEUR_02,PIN_CAPTEUR_MARGEUR_02) << 1);
+		ETAT_SYSTEME[2] = (ETAT_SYSTEME[2] & 0xFB)+ (gpio_get_value(PORT_CAPTEUR_MARGEUR_03,PIN_CAPTEUR_MARGEUR_03) << 2);
+		ETAT_SYSTEME[2] = (ETAT_SYSTEME[2] & 0xF7)+ (gpio_get_value(PORT_CAPTEUR_MARGEUR_04,PIN_CAPTEUR_MARGEUR_04) << 3);
+}
+	
+void led_traitement(void)
 {
 
 }
