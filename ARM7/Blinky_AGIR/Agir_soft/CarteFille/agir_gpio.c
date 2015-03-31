@@ -471,8 +471,8 @@ int bp_traitement(void)
 
 	if(gpio_get_value(PORT_BP_MARGEUR_00,PIN_BP_MARGEUR_00) == 0)
 	{
-	
-		arret_urgence = -1;
+		ETAT_SYSTEME[0] = 0;
+		arret_urgence   =-1;
 	}
 	else
 	{
@@ -489,6 +489,19 @@ int bp_traitement(void)
 	return arret_urgence;
 }
 
+void relais_traitement(void)
+{
+	if (ETAT_SYSTEME[0] == 0)
+		relais_all_off(void)
+	else
+	{
+		set_relais_margeur(MARGEUR_00, (ETAT_SYSTEME[0] >> 0) & 1);
+		set_relais_margeur(MARGEUR_01, (ETAT_SYSTEME[0] >> 1) & 1);
+		set_relais_margeur(MARGEUR_02, (ETAT_SYSTEME[0] >> 2) & 1);
+		set_relais_margeur(MARGEUR_03, (ETAT_SYSTEME[0] >> 3) & 1);
+		set_relais_margeur(MARGEUR_04, (ETAT_SYSTEME[0] >> 4) & 1);
+	}
+}
 
 /**********************************************************/
 /********************* FIN FICHIER ************************/
