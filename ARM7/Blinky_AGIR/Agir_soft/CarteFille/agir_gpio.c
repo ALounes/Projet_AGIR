@@ -449,10 +449,28 @@ void gpio_affichage(unsigned int numero_port, unsigned int numero_pin)
 
 void gpio_traitement(void)
 {
-	bp_traitement();
-	relais_traitement();
-	capteur_traitement();
-	led_traitement();
+	int arret_urgence;
+	
+	arret_urgence = bp_traitement();
+
+	if(arret_urgence == -1)
+	{
+		gpio_all_out_off();
+	}
+	else
+	{
+		relais_traitement();
+		capteur_traitement();
+		led_traitement();
+	}
+}
+
+int bp_traitement(void)
+{
+	int arret_urgence = 0;
+
+
+	return arret_urgence;
 }
 
 
