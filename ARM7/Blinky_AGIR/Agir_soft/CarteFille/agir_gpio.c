@@ -145,6 +145,42 @@ char gpio_get_value(unsigned int numero_port, unsigned int numero_pin)
 	return pin_value;
 }
 
+void led_capteur(int margeur,int etat)
+{
+	switch(margeur)
+	{
+		case MARGEUR_01:
+				if(etat == ON)
+					gpio_out_on(PORT_LED_MARGEUR_01_ORANGE, PIN_LED_MARGEUR_01_ORANGE);
+				else
+					gpio_out_off(PORT_LED_MARGEUR_01_ORANGE, PIN_LED_MARGEUR_01_ORANGE);					
+			break;
+
+		case MARGEUR_02:
+				if(etat == ON)
+					gpio_out_on(PORT_LED_MARGEUR_02_ORANGE, PIN_LED_MARGEUR_02_ORANGE);
+				else
+					gpio_out_off(PORT_LED_MARGEUR_02_ORANGE, PIN_LED_MARGEUR_02_ORANGE);
+			break;
+
+		case MARGEUR_03:
+				if(etat == ON)
+					gpio_out_on(PORT_LED_MARGEUR_03_ORANGE, PIN_LED_MARGEUR_03_ORANGE);
+				else
+					gpio_out_off(PORT_LED_MARGEUR_03_ORANGE, PIN_LED_MARGEUR_03_ORANGE);
+			break;
+
+		case MARGEUR_04:
+				if(etat == ON)
+					gpio_out_on(PORT_LED_MARGEUR_04_ORANGE, PIN_LED_MARGEUR_04_ORANGE);
+				else
+					gpio_out_off(PORT_LED_MARGEUR_04_ORANGE, PIN_LED_MARGEUR_04_ORANGE);
+			break;
+
+		default:
+			break;		
+	}
+}
 
 void set_led_margeur_00(int etat_margeur)
 {
@@ -518,9 +554,28 @@ void relais_traitement(void)
 void capteur_traitement(void)
 {
 		ETAT_SYSTEME[2] = (ETAT_SYSTEME[2] & 0xFE)+ (gpio_get_value(PORT_CAPTEUR_MARGEUR_01,PIN_CAPTEUR_MARGEUR_01) << 0);
+		if (((ETAT_SYSTEME[2] >> 0) & 1) == 1)
+			led_capteur(MARGEUR_01,ON);
+		else
+			led_capteur(MARGEUR_01,OFF);
+
 		ETAT_SYSTEME[2] = (ETAT_SYSTEME[2] & 0xFC)+ (gpio_get_value(PORT_CAPTEUR_MARGEUR_02,PIN_CAPTEUR_MARGEUR_02) << 1);
+		if (((ETAT_SYSTEME[2] >> 1) & 1) == 1)
+			led_capteur(MARGEUR_02,ON);
+		else
+			led_capteur(MARGEUR_02OFF);
+
 		ETAT_SYSTEME[2] = (ETAT_SYSTEME[2] & 0xFB)+ (gpio_get_value(PORT_CAPTEUR_MARGEUR_03,PIN_CAPTEUR_MARGEUR_03) << 2);
+		if (((ETAT_SYSTEME[2] >> 2) & 1) == 1)
+			led_capteur(MARGEUR_03,ON);
+		else
+			led_capteur(MARGEUR_03,OFF);
+
 		ETAT_SYSTEME[2] = (ETAT_SYSTEME[2] & 0xF7)+ (gpio_get_value(PORT_CAPTEUR_MARGEUR_04,PIN_CAPTEUR_MARGEUR_04) << 3);
+		if (((ETAT_SYSTEME[2] >> 3) & 1) == 1)
+			led_capteur(MARGEUR_04,ON);
+		else
+			led_capteur(MARGEUR_04,OFF);
 }
 	
 void led_traitement(void)
@@ -556,7 +611,6 @@ void led_traitement(void)
 			set_led_margeur_04(LED_RED);
 		else
 			set_led_margeur_04(LED_GREEN);
-
 	}
 }
 
