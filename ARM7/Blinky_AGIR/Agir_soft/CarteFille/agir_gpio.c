@@ -468,8 +468,11 @@ void gpio_traitement(void)
 int bp_traitement(void)
 {
 	int arret_urgence = 0;
-
-
+	gpio_get_value(PORT_BP_MARGEUR_00,PIN_BP_MARGEUR_00)
+	gpio_get_value(PORT_BP_MARGEUR_01,PIN_BP_MARGEUR_01)
+	gpio_get_value(PORT_BP_MARGEUR_02,PIN_BP_MARGEUR_02)
+	gpio_get_value(PORT_BP_MARGEUR_03,PIN_BP_MARGEUR_03)
+	gpio_get_value(PORT_BP_MARGEUR_04,PIN_BP_MARGEUR_04)
 	return arret_urgence;
 }
 
