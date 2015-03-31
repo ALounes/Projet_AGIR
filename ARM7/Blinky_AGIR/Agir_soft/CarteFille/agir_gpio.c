@@ -491,16 +491,33 @@ int bp_traitement(void)
 
 void relais_traitement(void)
 {
+	// SI le BP du margeur 0 est en oFF tout est en OFF
 	if (ETAT_SYSTEME[0] == 0)
 		relais_all_off(void)
 	else
 	{
-		set_relais_margeur(MARGEUR_00, (ETAT_SYSTEME[0] >> 0) & 1);
-		set_relais_margeur(MARGEUR_01, (ETAT_SYSTEME[0] >> 1) & 1);
-		set_relais_margeur(MARGEUR_02, (ETAT_SYSTEME[0] >> 2) & 1);
-		set_relais_margeur(MARGEUR_03, (ETAT_SYSTEME[0] >> 3) & 1);
-		set_relais_margeur(MARGEUR_04, (ETAT_SYSTEME[0] >> 4) & 1);
+		// ON test pour chaque margeur si son BP correspondant n'est pas en OFF
+		// et on recopie la valeur de la commande
+		if( ((ETAT_SYSTEME[0] >> 0) & 1) != 0 )
+			set_relais_margeur(MARGEUR_00, (ETAT_SYSTEME[1] >> 0) & 1);
+
+		if( ((ETAT_SYSTEME[0] >> 1) & 1) != 0 )
+			set_relais_margeur(MARGEUR_01, (ETAT_SYSTEME[1] >> 1) & 1);
+
+		if( ((ETAT_SYSTEME[0] >> 2) & 1) != 0 )
+			set_relais_margeur(MARGEUR_02, (ETAT_SYSTEME[1] >> 2) & 1);
+
+		if( ((ETAT_SYSTEME[0] >> 3) & 1) != 0 )
+			set_relais_margeur(MARGEUR_03, (ETAT_SYSTEME[1] >> 3) & 1);
+
+		if( ((ETAT_SYSTEME[0] >> 4) & 1) != 0 )
+			set_relais_margeur(MARGEUR_04, (ETAT_SYSTEME[1] >> 4) & 1);
 	}
+}
+
+void capteur_traitement(void)
+{
+
 }
 
 /**********************************************************/
