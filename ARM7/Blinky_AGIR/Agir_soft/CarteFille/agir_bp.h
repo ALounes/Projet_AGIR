@@ -22,7 +22,6 @@
 	
 	void bouton_initialisation(void);
 	void isr_bouton(void)__irq;
-	void bouton_traitement(void);
 
 #endif 
 

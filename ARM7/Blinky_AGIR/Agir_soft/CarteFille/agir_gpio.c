@@ -407,7 +407,6 @@ void relais_all_off(void)
 	set_relais_margeur(RELAIS_03, RELAIS_OFF);	
 }
 
-
 void gpio_affichage(unsigned int numero_port, unsigned int numero_pin) 
 {
 	static char str_01[TAILLE_ECRAN];
@@ -442,7 +441,18 @@ void gpio_affichage(unsigned int numero_port, unsigned int numero_pin)
 			sprintf(str_02,"Value : Hight");
 	}		
 
-	lcd_print (str);}
+	lcd_print (str);
+}
+
+
+/*********************************************************/
+
+void gpio_traitement(void)
+{
+	bp_traitement();
+	relais_traitement();
+	capteur_traitement();
+	led_traitement();
 }
 
 

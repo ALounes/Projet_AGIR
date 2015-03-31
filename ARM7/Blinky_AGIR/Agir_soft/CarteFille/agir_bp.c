@@ -36,7 +36,7 @@ void bouton_initialisation(void)
 
 void isr_bouton(void)__irq
 {
-	mise_a_jour_affichage_module();
+	afficher_carte_fille();
 
 	EXTINT = 1;
 	VICVectAddr = 0;
