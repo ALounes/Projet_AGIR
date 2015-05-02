@@ -1,0 +1,10 @@
+Dependencies for Project 'Blinky', Target 'Simulator': (DO NOT MODIFY !)
+F (.\LPC2300.s)(0x4A02D7BE)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\flash\lpc2300.o --depend .\flash\lpc2300.d)
+F (.\LCD.h)(0x4A02D7BE)()
+F (.\test.c)(0x539320E8)(-c --cpu ARM7TDMI -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\flash\test.o --omf_browse .\flash\test.crf --depend .\flash\test.d)
+I (C:\Keil\ARM\ARMCC\include\LPC23xx.H)(0x46ADF8B9)
+I (C:\Keil\ARM\ARMCC\include\math.h)(0x5284D694)
+I (lcd.h)(0x4A02D7BE)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x5284D694)
+F (.\LCD_4bit.c)(0x4A02D7BE)(-c --cpu ARM7TDMI -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\flash\lcd_4bit.o --omf_browse .\flash\lcd_4bit.crf --depend .\flash\lcd_4bit.d)
+I (C:\Keil\ARM\ARMCC\include\LPC23xx.H)(0x46ADF8B9)
