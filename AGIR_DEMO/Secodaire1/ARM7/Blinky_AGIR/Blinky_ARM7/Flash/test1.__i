@@ -1,1 +1,0 @@
--c --device DARMP -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Philips" -o ".\Flash\test1.o" --depend ".\Flash\test1.d" "test1.c"
